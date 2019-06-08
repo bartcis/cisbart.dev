@@ -1,21 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode } from 'react'
 import Markdown from 'markdown-to-jsx'
 import Gist from 'react-gist'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Header from "./header"
-import "./layout.css"
+import styled from 'styled-components'
 
-const ScriptHandler = (props) => {
-  // if the script is a gist override it with our react component.
+import Header from './header'
+
+interface Props {
+  children: ReactNode,
+  props: any,
+  src: string,
+}
+
+const ScriptHandler = (props:Props) => {
   if (props.src && props.src.includes('gist.github.com')) {
     return <Gist id={props.src.split('/')[4].split('.')[0]}/>
   }
   return null
 }
 
-const Layout = ({ children }) => (
+const Layout = ({ children }: Props) => (
   <StaticQuery
   query={graphql`{
         blog {
@@ -42,7 +47,7 @@ const Layout = ({ children }) => (
           
           <div>
             {blogPosts.map(post => (
-              <div key={post.id}>
+              <Container key={post.id}>
                 <p>{post.title}</p>
                 <p>{post.description.markdown}</p>
                 <img src={post.heroImage.url}/>
@@ -57,7 +62,7 @@ const Layout = ({ children }) => (
                 >
                   {post.content[0]}
                 </Markdown>
-              </div>
+              </Container>
             )
             )}
           </div>
@@ -71,8 +76,13 @@ const Layout = ({ children }) => (
   />
 )
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
-
+const Container = styled.div`
+  margin: 3rem auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+`
 export default Layout
