@@ -1,41 +1,39 @@
-import { Link } from 'gatsby'
-import React from 'react'
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+import Wrapper from './partials/common/wrapper'
+import LinkLogo from '../components/partials/logo'
+import SearchBar from '../components/partials/searchBar'
+import Hamburger from '../components/partials/hamburger'
 
 interface Props {
-  siteTitle: string
+  theme: {
+    colors: {
+      white: string,
+    },
+  }
+  props: any,
 }
 
-const Header = ({ siteTitle }: Props) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to='/'
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.defaultProps = {
-  siteTitle: ``,
+export default class Header extends Component {
+  render() {
+    return (
+      <StyledHeader>
+        <Hamburger type={'hamburger'}></Hamburger>
+        <Wrapper isFlex>
+          <LinkLogo/>
+          <SearchBar/>
+        </Wrapper>
+      </StyledHeader>
+    )
+  }
 }
 
-export default Header
+const StyledHeader: any = styled.header`
+  height: 5rem;
+  background-color: ${({theme}: Props) => theme.colors.white};
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.white};
+`

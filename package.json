@@ -31,7 +31,8 @@
     "react-gist": "^1.2.1",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.0.8",
-    "styled-components": "^4.3.1"
+    "styled-components": "^4.3.1",
+    "svg-react-loader": "^0.4.6"
   },
   "devDependencies": {
     "prettier": "^1.17.1"

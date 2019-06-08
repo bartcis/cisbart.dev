@@ -6,6 +6,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 
 import Header from './header'
+import SideMenu from './sideMenu'
 
 interface Props {
   children: ReactNode,
@@ -41,6 +42,7 @@ const Layout = ({ children }: Props) => (
     render={({blog: {blogPosts}}) => (
       <>
         <Header/>
+        <SideMenu/>
           {console.log(blogPosts)}
         
           <main>{children}</main>

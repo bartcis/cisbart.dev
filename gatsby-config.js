@@ -27,7 +27,7 @@ module.exports = {
         background_color: `#EDF0EC`,
         theme_color: `#1F2B46`,
         display: `standalone`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/logo.svg`,
       },
     },
     {
