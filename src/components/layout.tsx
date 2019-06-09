@@ -35,6 +35,7 @@ const Layout = ({ children }: Props) => (
               url
             }
             content
+            tags
           }
         }
       }
@@ -53,7 +54,7 @@ const Layout = ({ children }: Props) => (
                 <p>{post.title}</p>
                 <p>{post.description.markdown}</p>
                 <img src={post.heroImage.url}/>
-                <Markdown options={{
+                {/* <Markdown options={{
                   overrides: {
                     script: {
                       component: ScriptHandler
@@ -63,7 +64,7 @@ const Layout = ({ children }: Props) => (
                 }}
                 >
                   {post.content[0]}
-                </Markdown>
+                </Markdown> */}
               </Container>
             )
             )}

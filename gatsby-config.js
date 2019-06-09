@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-source-graphql`,
       options: {
-        typeName: `BLOG`,
+        typeName: `Blog`,
         fieldName: `blog`,
         url: `https://api-apeast.graphcms.com/v1/cjwm2voor0ufx01gpeyhvxq06/master`,
       },

@@ -59,7 +59,8 @@ const GlobalStyle = createGlobalStyle`
       font-weight: normal;
       font-style: normal;
     }
-    font-family: 'muliRegular';
+    font-family: 'muliLight';
+    margin: .5rem 0;
   }
 `;
 

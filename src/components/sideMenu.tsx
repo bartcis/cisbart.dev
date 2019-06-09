@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
+
+import { showMenu as showMenuAction } from '../store/app';
 
 import Overlay from './partials/darkOverlay'
 import Hamburger from '../components/partials/hamburger'
 import LinkLogo from '../components/partials/logo'
 import PageList from '../components/partials/pageList'
+import TagList from '../components/partials/tagList'
+import SocialIcons from './partials/socialIcons'
 
-interface Props {
-  theme: {
-    colors: {
-      white: string,
-    },
+class SideMenu extends Component {
+  constructor(props) {
+    super(props)
   }
-  props: any,
-}
 
-export default class SideMenu extends Component {
   render() {
     return (
       <MenuContainer>
@@ -26,11 +26,18 @@ export default class SideMenu extends Component {
             <LinkLogo/>
           </HamburgerWrapper>
           <PageList/>
+          <TagList/>
+          <SocialIcons/>
         </Menu>
       </MenuContainer>
     )
   }
 }
+
+export default connect(
+  state => ({ menuState: state.app.menuState }),
+  dispatch => ({ showMenu: status => dispatch(showMenuAction(status)) }),
+)(SideMenu);
 
 const HamburgerWrapper = styled.div`
   width: 100%;
@@ -56,7 +63,7 @@ const Menu = styled.div`
   height: 100vh;
   background-color: ${({theme}) => theme.colors.white};
   box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.white};
-  @media (min-width: 600px) {
+  @media (min-width: 480px) {
     width: 400px;
   }
 `

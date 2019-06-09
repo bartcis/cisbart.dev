@@ -50,8 +50,8 @@ const Container = styled.div`
 const BarRotated = styled.div`
   position: absolute;
   top: 1.4rem;
-  left: .25rem;
-  width: 40px;
+  left: .6rem;
+  width: 30px;
   background-color: ${({theme}) => theme.colors.black};
   height: 4px;
   transform: ${(props) => props.isRight ? 'rotate(-45deg)' : 'rotate(45deg)'};
