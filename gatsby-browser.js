@@ -1,3 +1,5 @@
+export { default as wrapRootElement } from './src/store/ReduxWrapper';
+
 // export const onClientEntry = () => {
 //   // IntersectionObserver polyfill for gatsby-image (Safari, IE)
 //   if (typeof window.IntersectionObserver === `undefined`) {

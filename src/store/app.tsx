@@ -1,15 +1,16 @@
 const initialState = {
-  menuState: false
+  menuState: 'false'
 };
 
 interface Props {
   action: any,
-  state: boolean,
+  status: boolean,
   type: any,
   payload: any
 }
 
 const SHOW_MENU = 'SHOW_MENU';
+
 export const showMenu = (status: Props) => ({ type: SHOW_MENU, payload: status });
 
 export default (state = initialState, action: Props) => {

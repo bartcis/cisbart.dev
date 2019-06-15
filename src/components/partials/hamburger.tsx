@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import { connect } from 'react-redux';
+import { showMenu as showMenuAction } from '../../store/app';
 
-// interface Props {
-//   type: string,
-//   props: any,
-//   icon: string,
-// }
-
-export default class Hamburger extends Component {
+class Hamburger extends Component {
   render() {
     const hamburger = (
-      <Container>
+      <Container onClick={() => this.props.showMenu('true')}>
         <BarFull></BarFull>
         <BarEmpty></BarEmpty>
         <BarFull></BarFull>
@@ -19,7 +15,7 @@ export default class Hamburger extends Component {
       </Container>
     )
     const cross = (
-      <Container>
+      <Container onClick={() => this.props.showMenu('false')}>
         <BarRotated></BarRotated>
         <BarRotated isRight></BarRotated>
       </Container>
@@ -32,6 +28,13 @@ export default class Hamburger extends Component {
   }
 }
 
+export default connect(
+  state => ({ menuState: state.app.menuState }),
+  dispatch => ({ showMenu: (status) => dispatch(showMenuAction(status))}),
+)(Hamburger);
+
+// STYLES
+
 const Container = styled.div`
   width: 3rem;
   height: 3rem;
@@ -39,7 +42,7 @@ const Container = styled.div`
   cursor: pointer;
   top: 1rem;
   left: 1rem;
-  padding: .8rem .5rem .6rem;
+  padding: 1rem .5rem .6rem;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover {
     background-color: ${({theme}) => theme.colors.whiteDark};
@@ -50,21 +53,30 @@ const Container = styled.div`
 const BarRotated = styled.div`
   position: absolute;
   top: 1.4rem;
-  left: .6rem;
-  width: 30px;
+  left: .8rem;
+  width: 1.5rem;
   background-color: ${({theme}) => theme.colors.black};
-  height: 4px;
+  height: 3px;
   transform: ${(props) => props.isRight ? 'rotate(-45deg)' : 'rotate(45deg)'};
+  transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  :hover {
+    background-color: ${({theme}) => theme.colors.turquoise};
+  }
 `;
 
 const BarFull = styled.div`
-  width: 2rem;
+  width: 1.5rem;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   background-color: ${({theme}) => theme.colors.black};
-  height: 4px;
+  height: 3px;
+  margin: auto;
+  transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  :hover {
+    background-color: ${({theme}) => theme.colors.turquoise};
+  }
 `;
 
 const BarEmpty = styled.div`
   width: 1rem;
-  height: 6px;
+  height: 3.5px;
 `;

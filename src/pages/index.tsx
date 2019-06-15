@@ -24,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color: ${({theme}: Props) => theme.colors.whiteDark};
   }
   *, *::before, *::after {
     box-sizing: border-box;

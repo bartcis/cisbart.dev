@@ -21,19 +21,34 @@ export default class Header extends Component {
       <StyledHeader>
         <Hamburger type={'hamburger'}></Hamburger>
         <Wrapper isFlex>
-          <LinkLogo/>
           <SearchBar/>
+          <StyledHome>
+            <LinkLogo/>
+          </StyledHome>
         </Wrapper>
       </StyledHeader>
     )
   }
 }
 
-const StyledHeader: any = styled.header`
+// STYLES
+const StyledHome = styled.div`
+  display: none;
+  @media (min-width: 600px) {
+    display: block;
+  }
+`
+
+const StyledHeader: any = styled.div`
   height: 5rem;
   background-color: ${({theme}: Props) => theme.colors.white};
   width: 100vw;
   position: fixed;
   top: 0;
-  box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.white};
+  padding: 0 5rem;
+  z-index: 2;
+  box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.whiteDark};
+  @media (min-width: 1200px) {
+    padding: 0;
+  }
 `

@@ -40,7 +40,7 @@ const ListContainer = styled.div`
 const Icon = styled.img`
   width: 40px;
   height: 40px;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 `;
 
 const Page = styled(Link)`
@@ -51,7 +51,7 @@ const Page = styled(Link)`
   h2 {
     transition: color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
     :hover {
-      color: ${({theme}) => theme.colors.grey};
+      color: ${({theme}) => theme.colors.turquoise};
     }
   }
 `;

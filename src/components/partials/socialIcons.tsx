@@ -63,24 +63,19 @@ const SocialIcons = () => (
         </Icon>
       </a>
     </Socials>
-    <h4>Handcrafted by myself :)</h4>
   </Container>
 )
 
 const Icon = styled.svg`
-  width: 35px;
-  height: 35px;
-  @media (min-width: 480px) {
-    width: 45px;
-    height: 45px;
-  }
+  width: 30px;
+  height: 30px;
   :hover {
     .circle {
-      fill: ${({theme}) => theme.colors.grey};
+      fill: ${({theme}) => theme.colors.turquoise};
       }
     }
   .circle {
-    fill: ${({theme}) => theme.colors.black};
+    fill: ${({theme}) => theme.colors.grey};
     transition: fill .5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .inner {
@@ -90,7 +85,7 @@ const Icon = styled.svg`
 
 const Socials = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 const Container = styled.div`
@@ -99,7 +94,7 @@ const Container = styled.div`
   left: 0;
   padding: 1rem;
   width: 100%;
+  margin-bottom: .5rem;
 `;
-
 
 export default SocialIcons;

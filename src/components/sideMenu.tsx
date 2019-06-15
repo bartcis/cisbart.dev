@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
-
 import { showMenu as showMenuAction } from '../store/app';
+import posed from 'react-pose';
 
 import Overlay from './partials/darkOverlay'
 import Hamburger from '../components/partials/hamburger'
@@ -11,14 +11,14 @@ import PageList from '../components/partials/pageList'
 import TagList from '../components/partials/tagList'
 import SocialIcons from './partials/socialIcons'
 
-class SideMenu extends Component {
-  constructor(props) {
-    super(props)
-  }
+const mapStateToProps = (state) => ({ 
+  menuState: state.app.menuState,
+});
 
+class SideMenu extends Component {
   render() {
     return (
-      <MenuContainer>
+      <MenuContainer pose={this.props.menuState === 'true' ? 'visible' : 'hidden'}>
         <Overlay/>
         <Menu>
           <HamburgerWrapper>
@@ -35,9 +35,21 @@ class SideMenu extends Component {
 }
 
 export default connect(
-  state => ({ menuState: state.app.menuState }),
+  mapStateToProps,
   dispatch => ({ showMenu: status => dispatch(showMenuAction(status)) }),
 )(SideMenu);
+
+// STYLES
+
+const AnimatedContainer = posed.section({
+  visible: {
+    transform: 'translateX(0)',
+  },
+  hidden: {
+    transform: 'translateX(-110%)',
+    transition: { duration: 1000 }
+  },
+});
 
 const HamburgerWrapper = styled.div`
   width: 100%;
@@ -48,9 +60,9 @@ const HamburgerWrapper = styled.div`
   align-items: center;
 `
 
-const MenuContainer = styled.section`
+const MenuContainer = styled(AnimatedContainer)`
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   top: 0;
   width: 100vw;
 `

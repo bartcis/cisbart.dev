@@ -2,23 +2,18 @@ import React, { ReactNode } from 'react'
 import Markdown from 'markdown-to-jsx'
 import Gist from 'react-gist'
 import { StaticQuery, graphql } from 'gatsby'
-
 import styled from 'styled-components'
 
 import Header from './header'
 import SideMenu from './sideMenu'
+import AuthorBox from './partials/authorBox'
+import Wrapper from './partials/common/wrapper'
+import ArticleBox from './partials/articleBox'
 
 interface Props {
   children: ReactNode,
   props: any,
   src: string,
-}
-
-const ScriptHandler = (props:Props) => {
-  if (props.src && props.src.includes('gist.github.com')) {
-    return <Gist id={props.src.split('/')[4].split('.')[0]}/>
-  }
-  return null
 }
 
 const Layout = ({ children }: Props) => (
@@ -27,14 +22,15 @@ const Layout = ({ children }: Props) => (
         blog {
           blogPosts {
             title
+            slug
             description {
               markdown
             }
             id
+            createdAt
             heroImage {
               url
             }
-            content
             tags
           }
         }
@@ -44,48 +40,27 @@ const Layout = ({ children }: Props) => (
       <>
         <Header/>
         <SideMenu/>
-          {console.log(blogPosts)}
-        
-          <main>{children}</main>
-          
+        <Wrapper isGapped>
+          <AuthorBox/>
           <div>
             {blogPosts.map(post => (
-              <Container key={post.id}>
-                <p>{post.title}</p>
-                <p>{post.description.markdown}</p>
-                <img src={post.heroImage.url}/>
-                {/* <Markdown options={{
-                  overrides: {
-                    script: {
-                      component: ScriptHandler
-                    },
-                    Gist: Gist,
-                  },
-                }}
-                >
-                  {post.content[0]}
-                </Markdown> */}
-              </Container>
-            )
-            )}
+                <ArticleBox key={post.id} title={post.title}
+                  description={post.description.markdown}
+                  date={post.createdAt.slice(0, 10).split('-').join('/')}
+                  tag1={post.tags[0]}
+                  tag2={post.tags[1]}
+                  tag3={post.tags[2]}
+                  image={post.heroImage.url}
+                  link = {post.slug}
+                />
+            ))}
           </div>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
+        </Wrapper>
+
+          {console.log(blogPosts)}
       </>
     )}
   />
 )
 
-const Container = styled.div`
-  margin: 3rem auto;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: purple;
-`
 export default Layout
