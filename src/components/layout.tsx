@@ -1,22 +1,14 @@
 import React, { ReactNode } from 'react'
-import Markdown from 'markdown-to-jsx'
-import Gist from 'react-gist'
 import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
 
 import Header from './header'
 import SideMenu from './sideMenu'
 import AuthorBox from './partials/authorBox'
 import Wrapper from './partials/common/wrapper'
 import ArticleBox from './partials/articleBox'
+import BlogFooter from './footer'
 
-interface Props {
-  children: ReactNode,
-  props: any,
-  src: string,
-}
-
-const Layout = ({ children }: Props) => (
+const Layout = () => (
   <StaticQuery
   query={graphql`{
         blog {
@@ -55,9 +47,8 @@ const Layout = ({ children }: Props) => (
                 />
             ))}
           </div>
+          <BlogFooter/>
         </Wrapper>
-
-          {console.log(blogPosts)}
       </>
     )}
   />

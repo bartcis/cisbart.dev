@@ -8,7 +8,7 @@ const AuthorBox = () => (
   <Container to='/about'>
     <Description>
       <h2>Bartek Cis</h2>
-      <p>I'm a JavaScript Developer. I like JS world. I love clean design and writing articles for my blogs.</p>
+      <p>I'm a JavaScript Developer. I like JS world. I adore clean design and love write articles for my blogs :)</p>
     </Description>
     <AuthorImage/>
   </Container>
@@ -26,12 +26,13 @@ const Container = styled(Link)`
   flex-wrap: wrap-reverse;
   align-items: center;
   background-color: #fff;
+  border: 1px solid ${({theme}) => theme.colors.whiteDark};
   border-radius: 75px;
   padding-left: 5rem;
-  box-shadow: 0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark};
+  box-shadow: none;
   transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover {
-    box-shadow: 5px 10px 10px ${({theme}) => theme.colors.grey};
+    box-shadow: 15px 10px 15px ${({theme}) => theme.colors.grey};
   }
 `;
 

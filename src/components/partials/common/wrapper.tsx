@@ -8,7 +8,7 @@ interface Props {
 
 const Wrapper = styled.div`
   max-width: ${(props: Props) => props.isWide ? '1200px' : '1050px'};
-  margin: ${(props: Props) => props.isGapped ? '8rem auto' : 'auto'}; ;
+  margin: ${(props: Props) => props.isGapped ? '8rem auto 0' : 'auto'}; ;
   display: ${(props: Props) => props.isFlex ? 'flex' : 'block'};
   justify-content: ${(props: Props) => props.isFlex ? 'space-between' : 'center'};
   align-items: ${(props: Props) => props.isFlex ? 'center' : 'center'};

@@ -30,7 +30,7 @@ const Input = styled.input`
   height: 3rem;
   width: 100%;
   border: 1px solid ${({theme}) => theme.colors.whiteDark};
-  border-radius: 5px;
+  border-radius: 25px;
   padding: 1rem;
   font-size: 1rem;
   color: ${({theme}) => theme.colors.grey};
@@ -54,7 +54,7 @@ const Icon = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: .5rem;
+  right: .75rem;
   top: .5rem;
   cursor: pointer;
 `

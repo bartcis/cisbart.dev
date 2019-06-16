@@ -4,11 +4,13 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../../store/app';
 
+import homeIcon from '../../images/house.svg'
+
 class LinkLogo extends Component {
   render() {
     return (
       <StyledLink to='/' onClick={() => this.props.showMenu('false')}>
-        Home
+        <Icon/>
       </StyledLink>
     )
   }
@@ -18,6 +20,14 @@ export default connect(
   state => ({ menuState: state.app.menuState }),
   dispatch => ({ showMenu: (status) => dispatch(showMenuAction(status))}),
 )(LinkLogo);
+
+const Icon = styled.div`
+  width: 3rem;
+  height: 3rem;
+  background-image: url(${homeIcon});
+  background-repeat: no-repeat;
+  background-position: center;
+`
 
 const StyledLink = styled(Link)`
   font-family: 'muliLight';

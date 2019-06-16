@@ -39,24 +39,20 @@ const Container = styled(Link)`
   margin: 3rem 1rem;
   width: 100%;
   border-radius: 100px;
-  box-shadow: 0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark};
+  border: 1px solid ${({theme}) => theme.colors.whiteDark};
+  box-shadow: none;
   overflow: hidden;
   text-decoration: none;
   height: 200px;
   position: relative;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   :hover {
-    box-shadow: 5px 10px 10px ${({theme}) => theme.colors.grey};
-    .image {
-      width: 200px;
-    }
+    box-shadow: 15px 10px 15px ${({theme}) => theme.colors.grey};
     .content {
-      width: calc(100% - 400px);
       &__title {
         transform: translateY(-15px);
       }
       &__subtitle {
-        transform: translateY(-25px);
         opacity: 1;
       }
     }
@@ -66,27 +62,27 @@ const Container = styled(Link)`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 250px;
+    width: 200px;
     border-radius: 100px;
   }
   .content {
     padding: 1rem 2rem;
-    width: calc(100% - 450px);
+    width: calc(100% - 400px);
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     &__title {
       transform: translateY(25px);
       transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &__subtitle {
-      transform: translateY(0px);
+      transform: translateY(-25px);
       opacity: 0;
-      transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
   .info {
     width: 200px;
     height: 100%;
-    box-shadow: 0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark};
+    border: 1px solid ${({theme}) => theme.colors.whiteDark};
     border-radius: 100px;
     text-align: center;
     display: flex;
