@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react'
-import Markdown from 'markdown-to-jsx'
-import Gist from 'react-gist'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
+// import React, { ReactNode } from 'react'
+// import Markdown from 'markdown-to-jsx'
+// import Gist from 'react-gist'
+// import { StaticQuery, graphql } from 'gatsby'
+// import styled from 'styled-components'
 // const ScriptHandler = (props:Props) => {
 //   if (props.src && props.src.includes('gist.github.com')) {
 //     return <Gist id={props.src.split('/')[4].split('.')[0]}/>

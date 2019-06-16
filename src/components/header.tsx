@@ -6,15 +6,6 @@ import LinkLogo from '../components/partials/logo'
 import SearchBar from '../components/partials/searchBar'
 import Hamburger from '../components/partials/hamburger'
 
-interface Props {
-  theme: {
-    colors: {
-      white: string,
-    },
-  }
-  props: any,
-}
-
 export default class Header extends Component {
   render() {
     return (
@@ -39,9 +30,9 @@ const StyledHome = styled.div`
   }
 `
 
-const StyledHeader: any = styled.div`
+const StyledHeader = styled.div`
   height: 5rem;
-  background-color: ${({theme}: Props) => theme.colors.white};
+  background-color: ${({theme}) => theme.colors.white};
   width: 100vw;
   position: fixed;
   top: 0;
