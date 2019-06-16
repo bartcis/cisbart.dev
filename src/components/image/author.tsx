@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import { css } from '@emotion/core';
 import Img from 'gatsby-image';
+import { css } from '@emotion/core';
 
 const AuthorImage = () => (
   <StaticQuery

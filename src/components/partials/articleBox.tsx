@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Tag from './common/tag'
-import { css } from '@emotion/core';
 
 interface Props {
   theme: {
