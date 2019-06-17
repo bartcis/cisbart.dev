@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
-import { css } from '@emotion/core';
 
 const AuthorImage = () => (
   <StaticQuery
@@ -18,12 +17,12 @@ const AuthorImage = () => (
     `}
     render = {data => 
     
-    <Img css={css`
-        box-shadow: 0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark};
-        width: 150px;
-        height: 150px;
-        border-radius: 100px;
-      `}
+    <Img style={{
+        boxShadow: `0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark}`,
+        width: '150px',
+        height: '150px',
+        borderRadius: '100px'
+      }}
       fluid={data.placeholderImage.childImageSharp.fluid} />
     }
   />
