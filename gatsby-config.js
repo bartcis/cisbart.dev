@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: `/cisbart.dev`,
   siteMetadata: {
     title: `Bartek Cis - JS Developer`,
     description: `This is blog of JavaScript Developer. I hope you'll enjoy. Read, like, share!`,
