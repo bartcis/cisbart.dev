@@ -7,17 +7,17 @@ class Hamburger extends Component {
   render() {
     const hamburger = (
       <Container onClick={() => this.props.showMenu('true')}>
-        <BarFull></BarFull>
+        <BarFull className='logo'></BarFull>
         <BarEmpty></BarEmpty>
-        <BarFull></BarFull>
+        <BarFull className='logo'></BarFull>
         <BarEmpty></BarEmpty>
-        <BarFull></BarFull>
+        <BarFull className='logo'></BarFull>
       </Container>
     )
     const cross = (
       <Container onClick={() => this.props.showMenu('false')}>
-        <BarRotated></BarRotated>
-        <BarRotated isRight></BarRotated>
+        <BarRotated className='logo'></BarRotated>
+        <BarRotated className='logo' isRight></BarRotated>
       </Container>
     )
     return (
@@ -47,6 +47,9 @@ const Container = styled.div`
   :hover {
     background-color: ${({theme}) => theme.colors.whiteDark};
     border-radius: 1.5rem;
+    .logo {
+      background-color: ${({theme}) => theme.colors.turquoise};
+    }
   }
 `
 
@@ -59,9 +62,6 @@ const BarRotated = styled.div`
   height: 3px;
   transform: ${(props) => props.isRight ? 'rotate(-45deg)' : 'rotate(45deg)'};
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  :hover {
-    background-color: ${({theme}) => theme.colors.turquoise};
-  }
 `;
 
 const BarFull = styled.div`
@@ -71,9 +71,6 @@ const BarFull = styled.div`
   height: 3px;
   margin: auto;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  :hover {
-    background-color: ${({theme}) => theme.colors.turquoise};
-  }
 `;
 
 const BarEmpty = styled.div`

@@ -8,7 +8,7 @@ const AuthorBox = () => (
   <Container to='/about'>
     <Description>
       <h2>Bartek Cis</h2>
-      <p>I'm a JavaScript Developer. I like JS world. I adore clean design and love write articles for my blogs :)</p>
+      <p>I'm a JavaScript Developer. I like JS world. I adore clean design and love to write articles for my blogs :)</p>
     </Description>
     <AuthorImage/>
   </Container>
