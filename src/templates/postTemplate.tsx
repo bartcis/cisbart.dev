@@ -1,4 +1,4 @@
-// import React, { ReactNode } from 'react'
+import React, { Component } from 'react'
 // import Markdown from 'markdown-to-jsx'
 // import Gist from 'react-gist'
 // import { StaticQuery, graphql } from 'gatsby'
@@ -79,3 +79,25 @@
 //     )}
 //   />
 // )
+
+export default class PostTemplate extends Component {
+  render() {
+    const post = this.props.data.wordpressPost;
+
+    return (
+      <>
+        <h1>ABC</h1>
+      </> 
+    )
+  }
+}
+
+// export const postQuery = graphql`
+//   query currentPostQuery($id: String!) {
+//     blogPost(id: { eq: $id }) {
+//       id  
+//       slug
+//       title
+//     }
+//   }
+// `
