@@ -1,4 +1,12 @@
 import React, { Component } from 'react'
+import { ThemeProvider } from 'styled-components';
+
+import GlobalStyle from '../components/partials/common/globalStyle'
+import SEO from '../components/seo'
+import { theme } from '../components/utils/theme';
+
+import Header from '../components/header'
+
 // import Markdown from 'markdown-to-jsx'
 // import Gist from 'react-gist'
 // import { StaticQuery, graphql } from 'gatsby'
@@ -80,17 +88,21 @@ import React, { Component } from 'react'
 //   />
 // )
 
-export default class PostTemplate extends Component {
-  render() {
-    const post = this.props.data.wordpressPost;
 
-    return (
-      <>
-        <h1>ABC</h1>
-      </> 
-    )
-  }
-}
+
+const PostTemplate = () => ( 
+  <ThemeProvider theme={theme}>
+    <>
+      <SEO title='Some Post' keywords={[`javascript`, `react`, `frontend`, `HTML CSS`]} />
+      <GlobalStyle/>
+      <Header/>
+      <h1>Hello Post</h1>
+    </>
+  </ThemeProvider>
+)
+
+export default PostTemplate
+
 
 // export const postQuery = graphql`
 //   query currentPostQuery($id: String!) {

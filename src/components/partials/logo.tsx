@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../../store/app';
 
-import homeIcon from '../../images/house.svg'
+import homeIcon from '../../images/home.svg'
 
 class LinkLogo extends Component {
   render() {

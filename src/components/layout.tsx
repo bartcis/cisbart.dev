@@ -43,7 +43,7 @@ const Layout = () => (
                   tag2={post.tags[1]}
                   tag3={post.tags[2]}
                   image={post.heroImage.url}
-                  link = {post.slug}
+                  link = {post.slug.toLowerCase()}
                 />
             ))}
           </div>

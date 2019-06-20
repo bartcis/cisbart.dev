@@ -23,9 +23,9 @@ class ArticleBox extends Component {
         </div>
         <div className="info">
           <div className="info__date">{this.props.date}</div>
-          {this.props.tag1 ? <Tag to={this.props.tag1} dangerouslySetInnerHTML={{ __html: this.props.tag1 }}/> : ''}     
-          {this.props.tag2 ? <Tag to={this.props.tag2} dangerouslySetInnerHTML={{ __html: this.props.tag2 }}/> : ''}     
-          {this.props.tag3 ? <Tag to={this.props.tag3} dangerouslySetInnerHTML={{ __html: this.props.tag3 }}/> : ''}     
+          {this.props.tag1 ? <Tag to={this.props.tag1.toLowerCase()} dangerouslySetInnerHTML={{ __html: this.props.tag1 }}/> : ''}     
+          {this.props.tag2 ? <Tag to={this.props.tag2.toLowerCase()} dangerouslySetInnerHTML={{ __html: this.props.tag2 }}/> : ''}     
+          {this.props.tag3 ? <Tag to={this.props.tag3.toLowerCase()} dangerouslySetInnerHTML={{ __html: this.props.tag3 }}/> : ''}     
         </div>
       </Container>
     )
