@@ -34,8 +34,12 @@ const GlobalStyle = createGlobalStyle`
       font-style: normal;
     }
     font-family: 'muliBlack';
+  }
+
+  a, h1, h2, h3, h4, p {
     color: ${({theme}: Props) => theme.colors.black};
   }
+
   h3, p {
     @font-face {
       font-family: 'muliRegular';
@@ -56,6 +60,14 @@ const GlobalStyle = createGlobalStyle`
     }
     font-family: 'muliLight';
     margin: .5rem 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.25rem;
   }
 `;
 

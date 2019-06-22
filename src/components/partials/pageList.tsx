@@ -1,31 +1,16 @@
 import React, {Component} from 'react';
 import { Link } from 'gatsby'
 import styled from 'styled-components';
-import { StaticQuery, graphql } from 'gatsby'
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../../store/app';
 
 class PageList extends Component {
+
   render() {
-const PageList = () => (
-  <StaticQuery
-    query={graphql`{
-        blog {
-          blogPages {
-            id 
-            title
-            slug
-            icon {
-              url
-            }
-          }
-        }
-      }
-    `}
-    render={({blog: {blogPages}}) => (
+    return (
       <>
         <ListContainer>
-          {blogPages.map(page => (
+          {this.props.pages.map(page => (
             <Page key={page.id} to={page.slug}>
               <Icon src={page.icon.url}/>
               <h2 dangerouslySetInnerHTML={{ __html: page.title }}
@@ -35,14 +20,15 @@ const PageList = () => (
           }
         </ListContainer>
       </>
-    )}
-  />
-)
+    )
+  }
+}
 
 export default connect(
   state => ({ menuState: state.app.menuState }),
   dispatch => ({ showMenu: (status) => dispatch(showMenuAction(status))}),
 )(PageList);
+
 
 const ListContainer = styled.div`
   border-bottom: 1px solid ${({theme}) => theme.colors.whiteDark};

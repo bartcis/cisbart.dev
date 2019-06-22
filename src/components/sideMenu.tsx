@@ -7,7 +7,7 @@ import posed from 'react-pose';
 import Overlay from './partials/darkOverlay'
 import Hamburger from '../components/partials/hamburger'
 import LinkLogo from '../components/partials/logo'
-import PageList from '../components/partials/pageList'
+import PagesQuery from '../components/partials/pagesQuery'
 import TagList from '../components/partials/tagList'
 import SocialIcons from './partials/socialIcons'
 
@@ -25,7 +25,7 @@ class SideMenu extends Component {
             <Hamburger type='cross'/>
             <LinkLogo/>
           </HamburgerWrapper>
-          <PageList/>
+          <PagesQuery/>
           <TagList/>
           <SocialIcons/>
         </Menu>

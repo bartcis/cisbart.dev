@@ -14,6 +14,9 @@ const Footer = styled.footer`
   color: ${({theme}) => theme.colors.grey};
   max-width: 600px;
   margin: 6rem auto 0;
+  p {
+    font-size: 1rem;
+  }
 `;
 
 export default BlogFooter;
