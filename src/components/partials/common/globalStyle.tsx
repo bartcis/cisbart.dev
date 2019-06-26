@@ -8,10 +8,12 @@ import muliLight2 from '../../../fonts/muli-light-webfont.woff2'
 import muliLight from '../../../fonts/muli-light-webfont.woff'
 
 interface Props {
+  isSmall: boolean,
   theme: {
     colors: {
       blue: string,
       whiteDark: string,
+      black: string
     },
   }
 }

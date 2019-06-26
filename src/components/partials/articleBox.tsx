@@ -76,6 +76,7 @@ const Container = styled(Link)`
       transform: translateY(-25px);
       opacity: 0;
       transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      font-size: 1rem;
     }
   }
   .info {

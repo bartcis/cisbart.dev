@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 
 import Header from './header'
 import SideMenu from './sideMenu'
@@ -34,7 +35,7 @@ const Layout = () => (
         <SideMenu/>
         <Wrapper isGapped>
           <AuthorBox/>
-          <div>
+          <ArticleWrapper>
             {blogPosts.map(post => (
                 <ArticleBox key={post.id} title={post.title}
                   description={post.description.markdown}
@@ -46,7 +47,7 @@ const Layout = () => (
                   link = {post.slug.toLowerCase()}
                 />
             ))}
-          </div>
+          </ArticleWrapper>
           <BlogFooter/>
         </Wrapper>
       </>
@@ -55,3 +56,7 @@ const Layout = () => (
 )
 
 export default Layout
+
+const ArticleWrapper = styled.div`
+  min-height: 55vh;
+`;

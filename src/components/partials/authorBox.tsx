@@ -16,6 +16,10 @@ const AuthorBox = () => (
 
 const Description = styled.div`
   margin-right: 2rem;
+  width: calc(100% - 182px);
+  p {
+    font-size: 1rem;
+  }
 `;
 
 const Container = styled(Link)`
@@ -31,6 +35,9 @@ const Container = styled(Link)`
   padding-left: 5rem;
   box-shadow: none;
   transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  @media (min-width: 600px) {
+    flex-wrap: nowrap;
+  }
   :hover {
     box-shadow: 15px 10px 15px ${({theme}) => theme.colors.grey};
   }

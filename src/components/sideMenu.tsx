@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../store/app';
-import posed from 'react-pose';
 
 import Overlay from './partials/darkOverlay'
 import Hamburger from '../components/partials/hamburger'
@@ -17,7 +16,7 @@ const mapStateToProps = (state) => ({
 
 class SideMenu extends Component {
   render() {
-    return (
+    const menu = (
       <MenuContainer pose={this.props.menuState === 'true' ? 'visible' : 'hidden'}>
         <Overlay/>
         <Menu>
@@ -31,6 +30,12 @@ class SideMenu extends Component {
         </Menu>
       </MenuContainer>
     )
+
+    return (
+      <>
+        {this.props.menuState === 'true' ? menu : ''}
+      </>
+    )
   }
 }
 
@@ -41,16 +46,6 @@ export default connect(
 
 // STYLES
 
-const AnimatedContainer = posed.section({
-  visible: {
-    transform: 'translateX(0)',
-  },
-  hidden: {
-    transform: 'translateX(-110%)',
-    transition: { duration: 1000 }
-  },
-});
-
 const HamburgerWrapper = styled.div`
   width: 100%;
   height: 5rem;
@@ -60,7 +55,7 @@ const HamburgerWrapper = styled.div`
   align-items: center;
 `
 
-const MenuContainer = styled(AnimatedContainer)`
+const MenuContainer = styled.section`
   position: fixed;
   z-index: 3;
   top: 0;
