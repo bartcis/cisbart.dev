@@ -66,7 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
       processTags(result.data.blog.blogPosts).map((a,i) => {
         createPage({
           path: `/${a}/`,
-          component: path.resolve(`./src/templates/postTemplate.tsx`),
+          component: path.resolve(`./src/templates/tagTemplate.tsx`),
           context: {
             id: i * 123,
           },
