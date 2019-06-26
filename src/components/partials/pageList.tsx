@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../../store/app';
 
+import H2 from './common/h2'
+
 class PageList extends Component {
 
   render() {
@@ -13,8 +15,8 @@ class PageList extends Component {
           {this.props.pages.map(page => (
             <Page key={page.id} to={page.slug}>
               <Icon src={page.icon.url}/>
-              <h2 dangerouslySetInnerHTML={{ __html: page.title }}
-                onClick={() => this.props.showMenu('false')}></h2>
+              <H2 dangerouslySetInnerHTML={{ __html: page.title }}
+                onClick={() => this.props.showMenu('false')}></H2>
             </Page>
           ))
           }

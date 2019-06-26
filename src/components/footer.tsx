@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components'
 
+import Text from './partials/common/text'
+
 const BlogFooter = () => (
   <Footer>
-    <p>© Copyright {new Date().getFullYear()} Bartek Cis</p>
+    <Text isSmall>© Copyright {new Date().getFullYear()} Bartek Cis</Text>
   </Footer>
 )
 
@@ -14,9 +16,6 @@ const Footer = styled.footer`
   color: ${({theme}) => theme.colors.grey};
   max-width: 600px;
   margin: 6rem auto 0;
-  p {
-    font-size: 1rem;
-  }
 `;
 
 export default BlogFooter;

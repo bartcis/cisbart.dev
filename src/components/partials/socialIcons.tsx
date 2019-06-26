@@ -95,6 +95,7 @@ const Container = styled.div`
   padding: 1rem;
   width: 100%;
   margin-bottom: .5rem;
+  box-sizing: border-box;
 `;
 
 export default SocialIcons;

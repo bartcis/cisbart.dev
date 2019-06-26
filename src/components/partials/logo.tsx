@@ -22,8 +22,8 @@ export default connect(
 )(LinkLogo);
 
 const Icon = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url(${homeIcon});
   background-repeat: no-repeat;
   background-position: center;

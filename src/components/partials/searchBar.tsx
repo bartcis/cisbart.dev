@@ -35,6 +35,7 @@ const Input = styled.input`
   font-size: 1rem;
   color: ${({theme}) => theme.colors.grey};
   font-family: 'muliRegular';
+  box-sizing: border-box;
   ::placeholder {
     font-family: 'muliRegular';
     -webkit-font-smooth: antialiased;

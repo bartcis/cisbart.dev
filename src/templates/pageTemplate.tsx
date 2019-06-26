@@ -54,7 +54,7 @@ const Heading = styled.h1`
   text-align: center;
 `
 const StyledMarkdown = styled(Markdown)`
-margin: 1rem;
+  margin: 1rem;
   p {
     display: flex;
   }

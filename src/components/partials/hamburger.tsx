@@ -44,6 +44,7 @@ const Container = styled.div`
   left: 1rem;
   padding: 1rem .5rem .6rem;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-sizing: border-box;
   :hover {
     background-color: ${({theme}) => theme.colors.whiteDark};
     border-radius: 1.5rem;

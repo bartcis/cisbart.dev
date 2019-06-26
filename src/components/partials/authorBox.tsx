@@ -1,14 +1,16 @@
 import React from 'react';
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import AuthorImage from '../image/author'
 
+import AuthorImage from '../image/author'
+import Text from './common/text'
+import H2 from './common/h2'
 
 const AuthorBox = () => (
   <Container to='/about'>
     <Description>
-      <h2>Bartek Cis</h2>
-      <p>I'm a JavaScript Developer. I like JS world. I adore clean design and love to write articles for my blogs :)</p>
+      <H2>Bartek Cis</H2>
+      <Text>I'm a JavaScript Developer. I like JS world. I adore clean design and love to write articles for my blogs :)</Text>
     </Description>
     <AuthorImage/>
   </Container>
