@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { showMenu as showMenuAction } from '../../store/app';
 
-import homeIcon from '../../images/home.svg'
+import homeIcon from '../../images/pineapple.svg'
 
 class LinkLogo extends Component {
   render() {
@@ -22,8 +22,8 @@ export default connect(
 )(LinkLogo);
 
 const Icon = styled.div`
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 3rem;
+  height: 3rem;
   background-image: url(${homeIcon});
   background-repeat: no-repeat;
   background-position: center;

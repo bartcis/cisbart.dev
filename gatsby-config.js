@@ -28,7 +28,7 @@ module.exports = {
         background_color: `#EDF0EC`,
         theme_color: `#1F2B46`,
         display: `standalone`,
-        icon: `src/images/o_mnie_min.jpg`,
+        icon: `src/images/pineapple_white.svg`,
       },
     },
     {

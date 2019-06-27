@@ -68,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
           path: `/${a}/`,
           component: path.resolve(`./src/templates/tagTemplate.tsx`),
           context: {
-            id: i * 123,
+            id: a,
           },
         });
       });
