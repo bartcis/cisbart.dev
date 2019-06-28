@@ -24,7 +24,7 @@ const ScriptHandler = (props) => {
 class PostTemplate extends Component {
   render() {
     const currentPost = this.props.data.blog.blogPosts[0];
-    console.log(currentPost);
+
     return (
       <ThemeProvider theme={theme}>
         <>

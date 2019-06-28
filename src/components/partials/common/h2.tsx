@@ -15,11 +15,14 @@ const H2 = styled.h2`
     font-weight: normal;
     font-style: normal;
   }
-  font-size: ${(props: Props) => props.isSmall ? '1.25rem' : '1.5rem'};
+  font-size: ${(props: Props) => props.isSmall ? '1rem' : '1.25rem'};
   font-family: muliBlack;
   color: ${({theme}) => theme.colors.black};
   -webkit-font-smooth: antialiased;
   -moz-font-smooth: antialiased;
+  @media (min-width: 700px) {
+    font-size: ${(props: Props) => props.isSmall ? '1.25rem' : '1.5rem'};
+  }
 `;
 
 export default H2;

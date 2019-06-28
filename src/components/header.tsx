@@ -11,21 +11,28 @@ export default class Header extends Component {
     return (
       <StyledHeader>
         <Hamburger type={'hamburger'}></Hamburger>
-        <Wrapper isFlex>
+        <HeaderWrapper isFlex>
           <SearchBar/>
           <StyledHome>
             <LinkLogo/>
           </StyledHome>
-        </Wrapper>
+        </HeaderWrapper>
       </StyledHeader>
     )
   }
 }
 
+const HeaderWrapper = styled(Wrapper)`
+  justify-content: center;
+  @media (min-width: 700px) {
+    justify-content: space-between;
+  }
+`
+
 // STYLES
 const StyledHome = styled.div`
   display: none;
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
     display: block;
   }
 `

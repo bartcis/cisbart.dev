@@ -30,7 +30,6 @@ class TagTemplate extends Component {
   }
 
   render() {
-    console.log(this.postsToRender)
 
     return (
       <ThemeProvider theme={theme}>

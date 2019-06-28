@@ -45,7 +45,11 @@ const Input = styled.input`
 
 const Form = styled.form`
   position: relative;
-  width: 300px;
+  width: 250px;
+  margin-right: 3rem;
+  @media (min-width: 700px) {
+    width: 300px;
+  }
 `
 
 const Icon = styled.div`

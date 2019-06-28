@@ -17,10 +17,17 @@ const AuthorBox = () => (
 )
 
 const Description = styled.div`
-  margin-right: 2rem;
+  margin-right: 0;
   width: calc(100% - 182px);
   p {
     font-size: 1rem;
+    display: none;
+    @media (min-width: 700px) {
+      display: block;
+    }
+  }
+  @media (min-width: 700px) {
+    margin-right: 2rem;
   }
 `;
 
@@ -34,10 +41,11 @@ const Container = styled(Link)`
   background-color: #fff;
   border: 1px solid ${({theme}) => theme.colors.whiteDark};
   border-radius: 75px;
-  padding-left: 5rem;
+  padding-left: 3rem;
   box-shadow: none;
   transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  @media (min-width: 600px) {
+  @media (min-width: 700px) {
+    padding-left: 5rem;
     flex-wrap: nowrap;
   }
   :hover {
