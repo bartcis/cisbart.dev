@@ -6,6 +6,8 @@ import muliBlack2 from '../../../fonts/muli-black-webfont.woff2'
 import muliBlack from '../../../fonts/muli-black-webfont.woff'
 import muliLight2 from '../../../fonts/muli-light-webfont.woff2'
 import muliLight from '../../../fonts/muli-light-webfont.woff'
+import muliBold2 from '../../../fonts/muli-bold-webfont.woff2'
+import muliBold from '../../../fonts/muli-bold-webfont.woff'
 
 interface Props {
   isSmall: boolean,
@@ -38,11 +40,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'muliBlack';
   }
 
-  a, h1, h2, h3, h4, p {
+  h1, h2, h3, h4, p {
     color: ${({theme}: Props) => theme.colors.black};
   }
 
-  h3, p {
+  h3, p, span {
     @font-face {
       font-family: 'muliRegular';
       src: url(${muliRegular2}) format('woff2'),
@@ -52,6 +54,35 @@ const GlobalStyle = createGlobalStyle`
     }
     font-family: 'muliRegular';
   }
+
+  a {
+    text-decoration: none;
+    color: ${({theme}: Props) => theme.colors.turquoiseDark};
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    :hover {
+      color: ${({theme}: Props) => theme.colors.turquoise};
+    }
+  }
+
+  strong {
+    @font-face {
+      font-family: 'muliBold';
+      src: url(${muliBold2}) format('woff2'),
+        url(${muliBold}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: muliBold;
+  }
+
+  blockquote {
+    background-color: ${({theme}: Props) => theme.colors.whiteDark};
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
+  }
+
   h4 {
     @font-face {
       font-family: 'muliLight';

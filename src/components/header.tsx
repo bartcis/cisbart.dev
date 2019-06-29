@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-import Wrapper from './partials/common/wrapper'
 import LinkLogo from '../components/partials/logo'
 import SearchBar from '../components/partials/searchBar'
 import Hamburger from '../components/partials/hamburger'
@@ -11,7 +10,7 @@ export default class Header extends Component {
     return (
       <StyledHeader>
         <Hamburger type={'hamburger'}></Hamburger>
-        <HeaderWrapper isFlex>
+        <HeaderWrapper>
           <SearchBar/>
           <StyledHome>
             <LinkLogo/>
@@ -22,31 +21,44 @@ export default class Header extends Component {
   }
 }
 
-const HeaderWrapper = styled(Wrapper)`
+const HeaderWrapper = styled.header`
+  display: flex;
   justify-content: center;
-  @media (min-width: 700px) {
+  align-items: center;
+  margin: 0;
+  height: 3rem;
+  @media (min-width: 600px) {
     justify-content: space-between;
+  }
+  @media (min-width: 1000px) {
+    max-width: 800px;
+    margin-left: 8vw;
+  }
+  @media (min-width: 1200px) {
+    margin: auto;
+    max-width: 1000px;
   }
 `
 
 // STYLES
 const StyledHome = styled.div`
   display: none;
-  @media (min-width: 700px) {
+  @media (min-width: 600px) {
     display: block;
   }
 `
 
 const StyledHeader = styled.div`
-  height: 5rem;
+  height: 3rem;
   background-color: ${({theme}) => theme.colors.white};
   width: 100vw;
   position: fixed;
   top: 0;
-  padding: 0 5rem;
+  padding: 0 0 0 4rem;
   z-index: 2;
   box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.whiteDark};
   @media (min-width: 1200px) {
+    padding: 0 5rem;
     padding: 0;
   }
 `

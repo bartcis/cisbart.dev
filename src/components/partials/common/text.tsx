@@ -25,7 +25,7 @@ const Text = styled.p`
     font-weight: normal;
     font-style: normal;
   }
-  font-size: ${(props: Props) => props.isSmall ? '1rem' : '1.25rem'};
+  font-size: ${(props: Props) => props.isSmall ? '.8rem' : '1rem'};
   font-family: ${(props: Props) => props.isBold ? 'muliBlack' : 'muliRegular'};
   color: ${({theme}) => theme.colors.black};
   -webkit-font-smooth: antialiased;

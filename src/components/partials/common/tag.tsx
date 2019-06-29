@@ -1,10 +1,28 @@
+import React, { Component } from 'react'
 import styled from 'styled-components';
 import { Link } from 'gatsby'
+
+import { connect } from 'react-redux';
+import { showMenu as showMenuAction } from '../../../store/app';
 
 import muliBlack2 from '../../../fonts/muli-black-webfont.woff2';
 import muliBlack from '../../../fonts/muli-black-webfont.woff';
 
-const Tag = styled(Link)`
+class Tag extends Component {
+  render() {
+    return (
+      <StyledTag to={this.props.target} onClick={() => this.props.showMenu('false')}
+      dangerouslySetInnerHTML={{ __html: this.props.target }}/>
+    )
+  }
+}
+
+export default connect(
+  state => ({ menuState: state.app.menuState }),
+  dispatch => ({ showMenu: (status) => dispatch(showMenuAction(status))}),
+)(Tag);
+
+const StyledTag = styled(Link)`
   @font-face {
     font-family: 'muliBlack';
     src: url(${muliBlack2}) format('woff2'),
@@ -12,7 +30,7 @@ const Tag = styled(Link)`
     font-weight: normal;
     font-style: normal;
   }
-  max-height: 2rem;
+  max-height: 1.75rem;
   margin: .25rem;
   text-decoration: none;
   border: 1px solid ${({theme}) => theme.colors.black};
@@ -21,8 +39,9 @@ const Tag = styled(Link)`
   border-radius: 1.5rem;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-family: 'muliBlack';
-  @media (min-width: 480px) {
-    margin: .5rem;
+  font-size: .8rem;
+  @media (min-width: 600px) {
+    margin: .25rem;
     padding: .25rem 1rem;
   }
   :hover {
@@ -31,5 +50,3 @@ const Tag = styled(Link)`
     box-shadow: 5px 5px 5px ${({theme}) => theme.colors.turquoiseDark};
   }
 `;
-
-export default Tag;

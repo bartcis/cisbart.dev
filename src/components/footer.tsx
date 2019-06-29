@@ -11,11 +11,11 @@ const BlogFooter = () => (
 
 const Footer = styled.footer`
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
   border-top: 1px solid ${({theme}) => theme.colors.whiteDark};
   color: ${({theme}) => theme.colors.grey};
   max-width: 600px;
-  margin: 6rem auto 0;
+  margin: 4rem auto 0;
 `;
 
 export default BlogFooter;

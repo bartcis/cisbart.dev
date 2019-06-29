@@ -11,6 +11,7 @@ import Header from '../components/header'
 import SideMenu from '../components/sideMenu'
 import Wrapper from '../components/partials/common/wrapper'
 import BlogFooter from '../components/footer';
+import H1 from '../components/partials/common/h1'
 
 class PageTemplate extends Component {
   render() {
@@ -50,19 +51,38 @@ export const pageQuery = graphql`
     }
   }
 `
-const Heading = styled.h1`
+const Heading = styled(H1)`
   text-align: center;
 `
 const StyledMarkdown = styled(Markdown)`
-  margin: 1rem;
+  margin: 1rem 0;
+  h2 {
+    font-size: 1.25rem;
+    @media (min-width: 600px) {
+      font-size: 1.5rem;
+    }
+  }
+  h3 {
+    font-size: 1rem;
+    @media (min-width: 600px) {
+      font-size: 1.25rem;
+    }
+  }
   p {
     display: flex;
+    font-size: 1rem;
+    @media (min-width: 600px) {
+      font-size: 1.1rem;
+    }
   }
   img {
-    max-width: 200px;
+    max-width: 280px;
     box-shadow: 15px 15px 30px ${({theme}) => theme.colors.grey};
     margin: 1rem auto;
-    @media (min-width: 480px) {
+    @media (min-width: 600px) {
+      max-width: 400px;
+    }
+    @media (min-width: 1000px) {
       max-width: 700px;
     }
   }

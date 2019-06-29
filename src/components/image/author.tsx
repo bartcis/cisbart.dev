@@ -19,8 +19,8 @@ const AuthorImage = () => (
     
     <Img style={{
         boxShadow: `0px 3px 15px 0px ${({theme}) => theme.colors.whiteDark}`,
-        width: '150px',
-        height: '150px',
+        width: '120px',
+        height: '120px',
         borderRadius: '100px'
       }}
       fluid={data.placeholderImage.childImageSharp.fluid} />

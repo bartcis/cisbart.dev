@@ -36,13 +36,13 @@ export default connect(
 // STYLES
 
 const Container = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   position: absolute;
   cursor: pointer;
-  top: 1rem;
+  top: .5rem;
   left: 1rem;
-  padding: 1rem .5rem .6rem;
+  padding: .6rem .4rem;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-sizing: border-box;
   :hover {
@@ -56,9 +56,9 @@ const Container = styled.div`
 
 const BarRotated = styled.div`
   position: absolute;
-  top: 1.4rem;
-  left: .8rem;
-  width: 1.5rem;
+  top: .925rem;
+  left: .4rem;
+  width: 1.25rem;
   background-color: ${({theme}) => theme.colors.black};
   height: 3px;
   transform: ${(props) => props.isRight ? 'rotate(-45deg)' : 'rotate(45deg)'};
@@ -66,15 +66,15 @@ const BarRotated = styled.div`
 `;
 
 const BarFull = styled.div`
-  width: 1.5rem;
+  width: 1.25rem;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   background-color: ${({theme}) => theme.colors.black};
-  height: 3px;
+  height: 2px;
   margin: auto;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
 `;
 
 const BarEmpty = styled.div`
   width: 1rem;
-  height: 3.5px;
+  height: 3px;
 `;

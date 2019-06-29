@@ -10,7 +10,7 @@ const AuthorBox = () => (
   <Container to='/about'>
     <Description>
       <H2>Bartek Cis</H2>
-      <Text>I'm a JavaScript Developer. I like JS world. I adore clean design and love to write articles for my blogs :)</Text>
+      <Text isSmall>I'm a JavaScript Developer. I like JS world. I adore clean design and love to write articles for my blogs :)</Text>
     </Description>
     <AuthorImage/>
   </Container>
@@ -18,33 +18,33 @@ const AuthorBox = () => (
 
 const Description = styled.div`
   margin-right: 0;
-  width: calc(100% - 182px);
+  width: calc(100% - 150px);
   p {
-    font-size: 1rem;
     display: none;
-    @media (min-width: 700px) {
+    @media (min-width: 600px) {
       display: block;
     }
   }
-  @media (min-width: 700px) {
-    margin-right: 2rem;
+  @media (min-width: 600px) {
+    margin-right: 1rem;
   }
 `;
 
 const Container = styled(Link)`
-  display: flex;
+  display: none;
   text-decoration: none;
   justify-content: space-between;
-  margin: 1rem;
+  margin: 1rem 0;
   flex-wrap: wrap-reverse;
   align-items: center;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.colors.white};
   border: 1px solid ${({theme}) => theme.colors.whiteDark};
   border-radius: 75px;
-  padding-left: 3rem;
+  padding-left: 2rem;
   box-shadow: none;
   transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-  @media (min-width: 700px) {
+  @media (min-width: 600px) {
+    display: flex;
     padding-left: 5rem;
     flex-wrap: nowrap;
   }

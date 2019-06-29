@@ -48,7 +48,7 @@ export default connect(
 
 const HamburgerWrapper = styled.div`
   width: 100%;
-  height: 5rem;
+  height: 3rem;
   border-bottom: 1px solid ${({theme}) => theme.colors.whiteDark};
   display: flex;
   justify-content: flex-end;
@@ -70,7 +70,7 @@ const Menu = styled.div`
   height: 100vh;
   background-color: ${({theme}) => theme.colors.white};
   box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.white};
-  @media (min-width: 480px) {
-    width: 400px;
+  @media (min-width: 600px) {
+    width: 350px;
   }
 `

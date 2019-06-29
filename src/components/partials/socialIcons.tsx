@@ -40,8 +40,8 @@ const SocialIcons = () => (
 )
 
 const Icon = styled.svg`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   :hover {
     .circle {
       fill: ${({theme}) => theme.colors.turquoise};

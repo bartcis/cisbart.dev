@@ -42,7 +42,7 @@ const TagList = () => (
       <>
         <TagContainer>
             {processTags(blogPosts).map(tag => (
-              <Tag key={tag} to={tag.toLowerCase()} dangerouslySetInnerHTML={{ __html: tag }}/>
+              <Tag key={tag} target={tag.toLowerCase()}/>
             ))}
         </TagContainer>
       </>
