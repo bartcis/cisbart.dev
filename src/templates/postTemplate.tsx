@@ -23,6 +23,24 @@ const ScriptHandler = (props) => {
 }
 
 class PostTemplate extends Component {
+  discus() {
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = this.props.data.blog.blogPosts[0].slug;
+      };
+
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://cisbart-dev.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', + new Date());
+      (d.head || d.body).appendChild(s);
+      })();
+  }
+
+  componentDidMount () {
+    this.discus();
+  }
+
   render() {
     const currentPost = this.props.data.blog.blogPosts[0];
 
@@ -44,7 +62,7 @@ class PostTemplate extends Component {
                 ))}
               </TagContainer>
             </FlexWrapper>
-            <StyledMarkdown isDescription>
+            <StyledMarkdown>
               {currentPost.description.markdown}
             </StyledMarkdown>
             <StyledMarkdown options={{
@@ -57,6 +75,7 @@ class PostTemplate extends Component {
               }}>
               {currentPost.content[0]}
             </StyledMarkdown>
+            <div id="disqus_thread"></div>
             <BlogFooter/>
           </Wrapper>
         </>
@@ -130,7 +149,6 @@ const Heading = styled(H1)`
   }
 `
 const StyledMarkdown = styled(Markdown)`
-  font-weight: ${(props) => props.isDescription ? '700' : '400'};
   font-size: 1rem;
   @media (min-width: 600px) {
     font-size: 1.1rem;

@@ -58,5 +58,5 @@ const Layout = () => (
 export default Layout
 
 const ArticleWrapper = styled.div`
-  min-height: 55vh;
+  min-height: 70vh;
 `;

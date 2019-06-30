@@ -83,5 +83,5 @@ export const tagQuery = graphql`{
 `
 
 const ArticleWrapper = styled.div`
-  min-height: 55vh;
+  min-height: 70vh;
 `;
