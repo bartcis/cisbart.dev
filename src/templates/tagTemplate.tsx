@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import { graphql } from 'gatsby'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 import Header from '../components/header'
 import SideMenu from '../components/sideMenu'
@@ -9,6 +9,13 @@ import H2 from '../components/partials/common/h2'
 import ArticleBox from '../components/partials/articleBox'
 import BlogFooter from '../components/footer'
 import { theme } from '../components/utils/theme'
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 class TagTemplate extends Component {
   constructor() {
@@ -34,6 +41,7 @@ class TagTemplate extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
+          <GlobalStyle/>
           <Header/>
           <SideMenu/>
           <Wrapper isGapped>

@@ -35,7 +35,7 @@ export default connect(
 
 // STYLES
 
-const Container = styled.div`
+const Container = styled.button`
   width: 2rem;
   height: 2rem;
   position: absolute;
@@ -45,6 +45,7 @@ const Container = styled.div`
   padding: .6rem .4rem;
   transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-sizing: border-box;
+  border: none;
   :hover {
     background-color: ${({theme}) => theme.colors.whiteDark};
     border-radius: 1.5rem;

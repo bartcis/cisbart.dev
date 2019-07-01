@@ -34,7 +34,7 @@ const Container = styled(Link)`
   display: none;
   text-decoration: none;
   justify-content: space-between;
-  margin: 1rem 0;
+  margin: 2rem 0;
   flex-wrap: wrap-reverse;
   align-items: center;
   background-color: ${({theme}) => theme.colors.white};
