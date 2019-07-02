@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Markdown from 'markdown-to-jsx'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import Gist from 'react-gist'
 
 import SEO from '../components/seo'
@@ -34,90 +34,6 @@ interface Props {
     },
   }
 }
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-  }
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  a, h1, h2 {
-    @font-face {
-      font-family: 'muliBlack';
-      src: url(${muliBlack2}) format('woff2'),
-        url(${muliBlack}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    font-family: 'muliBlack';
-  }
-
-  h1, h2, h3, h4, p {
-    color: ${({theme}: Props) => theme.colors.black};
-  }
-
-  h3, p, span {
-    @font-face {
-      font-family: 'muliRegular';
-      src: url(${muliRegular2}) format('woff2'),
-        url(${muliRegular}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    font-family: 'muliRegular';
-  }
-
-  a {
-    text-decoration: none;
-    color: ${({theme}: Props) => theme.colors.turquoiseDark};
-    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    :hover {
-      color: ${({theme}: Props) => theme.colors.turquoise};
-    }
-  }
-
-  strong {
-    @font-face {
-      font-family: 'muliBold';
-      src: url(${muliBold2}) format('woff2'),
-        url(${muliBold}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    font-family: muliBold;
-  }
-
-  blockquote {
-    background-color: ${({theme}: Props) => theme.colors.whiteDark};
-    margin: 1rem;
-    padding: .5rem 1rem;
-    border-radius: 15px;
-    box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
-  }
-
-  h4 {
-    @font-face {
-      font-family: 'muliLight';
-      src: url(${muliLight2}) format('woff2'),
-        url(${muliLight}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    font-family: 'muliLight';
-    margin: .5rem 0;
-  }
-
-  h1 {
-    font-size: 3rem;
-  }
-
-  p {
-    font-size: 1.25rem;
-  }
-`;
 
 const ScriptHandler = (props) => {
   if (props.src && props.src.includes('gist.github.com')) {
@@ -212,7 +128,7 @@ class PostTemplate extends Component {
               <H2>Similar Articles:</H2>
               {this.similarArticles.map(post => (
                 <div key={post.id}>
-                  <Link dangerouslySetInnerHTML={{ __html: post.title }} to={post.slug}/>
+                  <a dangerouslySetInnerHTML={{ __html: post.title }} href={post.slug}></a>
                 </div>
               ))}
             </SimilarArticles>
@@ -249,9 +165,25 @@ export const pageQuery = graphql`
 `
 
 const SimilarArticles = styled.div`
+  @font-face {
+    font-family: 'muliBlack';
+    src: url(${muliBlack2}) format('woff2'),
+      url(${muliBlack}) format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
   margin: 2rem 0;
   div {
     margin: 1rem 0;
+  }
+  a {
+    font-family: 'muliBlack';
+    text-decoration: none;
+    color: ${({theme}: Props) => theme.colors.turquoiseDark};
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    :hover {
+      color: ${({theme}: Props) => theme.colors.turquoise};
+    }
   }
 `
 
@@ -271,6 +203,14 @@ const FlexWrapper = styled(Wrapper)`
     margin: 1rem 0;
   }
   h2 {
+    @font-face {
+      font-family: 'muliBlack';
+      src: url(${muliBlack2}) format('woff2'),
+        url(${muliBlack}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: 'muliBlack';
     font-size: 1rem;
   }
 `
@@ -298,11 +238,79 @@ const Heading = styled(H1)`
   }
 `
 const StyledMarkdown = styled(Markdown)`
-  font-size: 1rem;
-  line-height: 1.6;
-  @media (min-width: 600px) {
-    font-size: 1.1rem;
+  @font-face {
+    font-family: 'muliBold';
+    src: url(${muliBold2}) format('woff2'),
+      url(${muliBold}) format('woff');
+    font-weight: normal;
+    font-style: normal;
   }
+  font-family: muliBold;
+  line-height: 1.6;
+
+  a, h1, h2 {
+    @font-face {
+      font-family: 'muliBlack';
+      src: url(${muliBlack2}) format('woff2'),
+        url(${muliBlack}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: 'muliBlack';
+  }
+
+  h1, h2, h3, h4, p {
+    color: ${({theme}: Props) => theme.colors.black};
+  }
+
+  h3, p, span {
+    @font-face {
+      font-family: 'muliRegular';
+      src: url(${muliRegular2}) format('woff2'),
+        url(${muliRegular}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: 'muliRegular';
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({theme}: Props) => theme.colors.turquoiseDark};
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    :hover {
+      color: ${({theme}: Props) => theme.colors.turquoise};
+    }
+  }
+
+  strong {
+    font-family: muliBold;
+  }
+
+  blockquote {
+    background-color: ${({theme}: Props) => theme.colors.whiteDark};
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
+  }
+
+  h4 {
+    @font-face {
+      font-family: 'muliLight';
+      src: url(${muliLight2}) format('woff2'),
+        url(${muliLight}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    font-family: 'muliLight';
+    margin: .5rem 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
   p, span {
     font-size: 1rem;
     @media (min-width: 600px) {
