@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Bartek Cis",
   "dependencies": {
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "@types/markdown-to-jsx": "^6.9.0",
     "@types/node": "^12.0.8",
     "@types/react": "^16.8.20",
@@ -35,7 +36,7 @@
     "react-markdown": "^4.0.8",
     "react-redux": "^7.1.0",
     "redux": "^4.0.1",
-    "styled-components": "^5.0.0-beta.2"
+    "styled-components": "4.3.2"
   },
   "devDependencies": {
     "prettier": "^1.18.2"

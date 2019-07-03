@@ -39,5 +39,20 @@ module.exports = {
         url: `https://api-apeast.graphcms.com/v1/cjwm2voor0ufx01gpeyhvxq06/master`,
       },
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        fields: [`title`, `tags`],
+        resolvers: {
+          MarkdownRemark: {
+            title: node => node.frontmatter.title,
+            tags: node => node.frontmatter.tags,
+            path: node => node.frontmatter.path,
+          },
+        },
+        filter: (node, getNode) =>
+          node.frontmatter.tags !== 'exempt',
+      },
+    },
   ],
 }

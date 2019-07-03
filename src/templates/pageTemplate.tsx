@@ -28,8 +28,8 @@ class PageTemplate extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
-          <SEO title={currentPage.title} keywords={currentPage.slug} description={currentPage.description}/>
           <GlobalStyle/>
+          <SEO title={currentPage.title} keywords={currentPage.slug} description={currentPage.description}/>
           <Header/>
           <SideMenu/>
           <Wrapper isGapped>

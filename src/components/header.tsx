@@ -1,25 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { StaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import LinkLogo from '../components/partials/logo'
-import SearchBar from '../components/partials/searchBar'
 import Hamburger from '../components/partials/hamburger'
+import Search from '../components/partials/searchBar'
 
-export default class Header extends Component {
-  render() {
-    return (
+const Header = () => (
+  <StaticQuery
+    query={graphql`
+      query SearchIndexQuery {
+        siteSearchIndex {
+          index
+        }
+      }
+    `}
+    render={data => (
       <StyledHeader>
         <Hamburger type={'hamburger'}></Hamburger>
         <HeaderWrapper>
-          <SearchBar/>
+          <Search searchIndex={data.siteSearchIndex.index} />
           <StyledHome>
-            <LinkLogo/>
+          <LinkLogo/>
           </StyledHome>
         </HeaderWrapper>
       </StyledHeader>
-    )
-  }
-}
+    )}
+  />
+)
+
+export default Header
 
 const HeaderWrapper = styled.header`
   display: flex;

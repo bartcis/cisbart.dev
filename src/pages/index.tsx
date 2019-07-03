@@ -13,11 +13,11 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const IndexPage = () => ( 
+const IndexPage = () => (
   <ThemeProvider theme={theme}>
     <>
-      <GlobalStyle/>
       <SEO title='Home Page' keywords={[`javascript`, `react`, `frontend`, `HTML CSS`]} />
+      <GlobalStyle />
       <Layout></Layout>
     </>
   </ThemeProvider>

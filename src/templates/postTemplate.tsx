@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ThemeProvider } from 'styled-components'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Markdown from 'markdown-to-jsx'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import Gist from 'react-gist'
 
 import SEO from '../components/seo'
@@ -34,6 +34,13 @@ interface Props {
     },
   }
 }
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0;
+  }
+`
 
 const ScriptHandler = (props) => {
   if (props.src && props.src.includes('gist.github.com')) {
@@ -95,8 +102,8 @@ class PostTemplate extends Component {
     return (
       <ThemeProvider theme={theme}>
         <>
+          <GlobalStyle />
           <SEO title={this.currentPost.title} keywords={this.currentPost.slug} description={this.currentPost.description}/>
-          <GlobalStyle/>
           <Header/>
           <SideMenu/>
           <HeroImage style={{ backgroundImage: `url(${this.currentPost.heroImage.url})` }}/>
@@ -128,7 +135,7 @@ class PostTemplate extends Component {
               <H2>Similar Articles:</H2>
               {this.similarArticles.map(post => (
                 <div key={post.id}>
-                  <a dangerouslySetInnerHTML={{ __html: post.title }} href={post.slug}></a>
+                  <Link dangerouslySetInnerHTML={{ __html: post.title }} to={post.slug}/>
                 </div>
               ))}
             </SimilarArticles>
