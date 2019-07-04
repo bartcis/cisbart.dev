@@ -1,17 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticQuery } from 'gatsby'
-import { graphql } from 'gatsby'
 
 import LinkLogo from '../components/partials/logo'
 import Hamburger from '../components/partials/hamburger'
-import Search from '../components/partials/searchBar'
 
 const Header = () => (
   <StyledHeader>
     <Hamburger type={'hamburger'}></Hamburger>
     <HeaderWrapper>
-      <Search />
       <StyledHome>
         <LinkLogo />
       </StyledHome>
@@ -28,7 +24,7 @@ const HeaderWrapper = styled.header`
   margin: 0;
   height: 3rem;
   @media (min-width: 600px) {
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   @media (min-width: 1000px) {
     max-width: 800px;
