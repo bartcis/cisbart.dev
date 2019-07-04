@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Index } from 'elasticlunr'
 
 import muliRegular2 from '../../fonts/muli-regular-webfont.woff2'
 import muliRegular from '../../fonts/muli-regular-webfont.woff'
@@ -38,29 +37,6 @@ export default class Search extends Component {
       </div>
     )
   }
-
-  getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-      Index.load(this.props.searchIndex)
-
-  search = evt => {
-    const query = evt.target.value
-    this.index = this.getOrCreateIndex()
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, {})
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    })
-  }
-}
-
-Search.propTypes = {
-  searchIndex: PropTypes.object,
 }
 
 const Input = styled.input`

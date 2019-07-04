@@ -1,3 +1,63 @@
+require('dotenv').config({
+  path: '.env.production',
+})
+
+const striptags = require("striptags")
+
+const blogQuery = `{
+  blog {
+    blogPosts {
+      title
+      description {
+        markdown
+      }
+      tags
+      content
+    }
+  }
+}
+`
+
+const queries = [
+  {
+    query: blogQuery,
+    transformer: ({ data }) => {
+      console.log(data.blog.blogPosts)
+      return data.blog.blogPosts
+    }
+      // 1. Break each post into an array of searchable text chunks.
+      // 2. return a flattened array of all indices
+      // return data.allMarkdownRemark.nodes.reduce((indices, post) => {
+      //   // 1. description (if it exists)
+      //   // 2. Each paragraph
+
+      //   const pChunks = striptags(post.html, [], "XXX_SPLIT_HERE_XXX").split(
+      //     "XXX_SPLIT_HERE_XXX"
+      //   )
+
+      //   const chunks = pChunks.map(chnk => ({
+      //     slug: post.fields.slug,
+      //     date: post.frontmatter.date,
+      //     title: post.frontmatter.title,
+      //     excerpt: chnk,
+      //   }))
+
+      //   if (post.frontmatter.description) {
+      //     chunks.push({
+      //       slug: post.fields.slug,
+      //       date: post.frontmatter.date,
+      //       title: post.frontmatter.title,
+      //       excerpt: post.frontmatter.excerpt,
+      //     })
+      //   }
+
+      //   const filtered = chunks.filter(chnk => !!chnk.excerpt)
+
+      //   return [...indices, ...filtered]
+      // }, [])
+  },
+]
+
 module.exports = {
   pathPrefix: `/cisbart.dev`,
   siteMetadata: {
@@ -40,18 +100,13 @@ module.exports = {
       },
     },
     {
-      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      resolve: `gatsby-plugin-algolia`,
       options: {
-        fields: [`title`, `tags`],
-        resolvers: {
-          MarkdownRemark: {
-            title: node => node.frontmatter.title,
-            tags: node => node.frontmatter.tags,
-            path: node => node.frontmatter.path,
-          },
-        },
-        filter: (node, getNode) =>
-          node.frontmatter.tags !== 'exempt',
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME,
+        queries,
+        chunkSize: 10000,
       },
     },
   ],

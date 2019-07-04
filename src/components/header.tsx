@@ -8,26 +8,15 @@ import Hamburger from '../components/partials/hamburger'
 import Search from '../components/partials/searchBar'
 
 const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query SearchIndexQuery {
-        siteSearchIndex {
-          index
-        }
-      }
-    `}
-    render={data => (
-      <StyledHeader>
-        <Hamburger type={'hamburger'}></Hamburger>
-        <HeaderWrapper>
-          <Search searchIndex={data.siteSearchIndex.index} />
-          <StyledHome>
-          <LinkLogo/>
-          </StyledHome>
-        </HeaderWrapper>
-      </StyledHeader>
-    )}
-  />
+  <StyledHeader>
+    <Hamburger type={'hamburger'}></Hamburger>
+    <HeaderWrapper>
+      <Search />
+      <StyledHome>
+        <LinkLogo />
+      </StyledHome>
+    </HeaderWrapper>
+  </StyledHeader>
 )
 
 export default Header

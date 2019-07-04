@@ -44,23 +44,23 @@ exports.createPages = ({ graphql, actions }) => {
         let fullTagList = [];
         let tagList = [];
         let uniqueList = [];
-      
+
         tags.map(array => {
           fullTagList.push(array.tags);
         });
-      
+
         fullTagList.map(array => {
           for (let tag of array) {
             tagList.push(tag);
           }
         });
-      
+
         tagList.sort().map((a, i) => {
           if (a !== tagList[i + 1]) {
             uniqueList.push(a.toLowerCase());
           }
         });
-      
+
         return uniqueList;
       }
       processTags(result.data.blog.blogPosts).map((a,i) => {
