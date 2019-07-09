@@ -91,77 +91,88 @@ const BombingContainer = styled.section`
   left: 0;
   top: 0;
 
-  div:nth-child(3n+0) {
-    width: 1.5rem;
-    height: 1.5rem;
+  div:nth-child(1) {
+    width: 5rem;
+    height: 5rem;
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 2s;
   }
-  div:nth-child(3n+1) {
+  div:nth-child(2) {
     width: 2.5rem;
     height: 2.5rem;
-  }
-  div:nth-child(3n+2) {
-    width: 3.5rem;
-    height: 3.5rem;
-  }
-  div:nth-child(3n+3) {
-    width: 4.5rem;
-    height: 4.5rem;
-  }
-  div:nth-child(n+0) {
-    animation-duration: 6s;
-    animation-timing-function: ease-in-out;
-  }
-  div:nth-child(n+1) {
     animation-duration: 6.5s;
     animation-timing-function: ease-out;
+    animation-delay: 4s;
   }
-  div:nth-child(n+2) {
+  div:nth-child(3) {
+    width: 1.5rem;
+    height: 1.5rem;
     animation-duration: 7s;
     animation-timing-function: ease;
+    animation-delay: 5s;
   }
-  div:nth-child(n+3) {
+  div:nth-child(4) {
+    width: 2.75rem;
+    height: 2.75rem;
     animation-duration: 7.5s;
     animation-timing-function: ease-in;
+    animation-delay: 2.5s;
   }
-  div:nth-child(n+4) {
+  div:nth-child(5) {
+    width: 1.75rem;
+    height: 1.75rem;
     animation-duration: 6s;
     animation-timing-function: linear;
+    animation-delay: 5s;
   }
-  div:nth-child(n+5) {
+  div:nth-child(6) {
+    width: 4rem;
+    height: 4rem;
     animation-duration: 6.5s;
     animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+    animation-delay: 1.5s;
   }
-  div:nth-child(n+6) {
+  div:nth-child(7) {
+    width: 3rem;
+    height: 3rem;
     animation-duration: 7s;
     animation-timing-function: ease-in-out;
+    animation-delay: 2.5s;
   }
-  div:nth-child(n+7) {
+  div:nth-child(8) {
+    width: 2.25rem;
+    height: 2.25rem;
     animation-duration: 7.5s;
     animation-timing-function: ease-out;
+    animation-delay: 4.5s;
   }
-  div:nth-child(n+8) {
+  div:nth-child(9) {
+    width: 3.25rem;
+    height: 3.25rem;
     animation-duration: 8s;
     animation-timing-function: ease;
-  }
-  div:nth-child(n+9) {
-    animation-duration: 8.5s;
-    animation-timing-function: ease-in;
-  }
-  div:nth-child(n+10) {
-    animation-duration: 9s;
-    animation-timing-function: linear;
-  }
-  div:nth-child(n+11) {
-    animation-duration: 9.5s;
-    animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
-  }
-  div:nth-child(4n+0) {
     animation-delay: 0s;
   }
-  div:nth-child(4n+1) {
-    animation-duration: 1s;
+  div:nth-child(10) {
+    width: 1rem;
+    height: 1rem;
+    animation-duration: 8.5s;
+    animation-timing-function: ease-in;
+    animation-delay: 1s;
   }
-  div:nth-child(4n+2) {
-    animation-duration: 2s;
+  div:nth-child(11) {
+    width: 1.75rem;
+    height: 1.75rem;
+    animation-duration: 9s;
+    animation-timing-function: linear;
+    animation-delay: 6s;
+  }
+  div:nth-child(12) {
+    width: 2.25rem;
+    height: 2.25rem;
+    animation-duration: 9.5s;
+    animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+    animation-delay: 2s;
   }
 `
