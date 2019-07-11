@@ -20,6 +20,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  blockquote {
+    background-color: ${({theme}: Props) => theme.colors.whiteDark};
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: 15px;
+    box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
+  }
 `
 
 class PageTemplate extends Component {
@@ -97,8 +104,14 @@ const StyledMarkdown = styled(Markdown)`
   p {
     font-size: 1rem;
     font-family: 'muliRegular';
-    @media (min-width: 600px) {
-      font-size: 1.1rem;
+  }
+  a {
+    text-decoration: none;
+    font-family: 'muliBlack';
+    color: ${({theme}: Props) => theme.colors.turquoiseDark};
+    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    :hover {
+      color: ${({theme}: Props) => theme.colors.turquoise};
     }
   }
   img {

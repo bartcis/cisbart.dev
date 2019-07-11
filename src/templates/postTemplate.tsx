@@ -88,6 +88,10 @@ class PostTemplate extends Component {
         }
       }
     });
+
+    if (this.similarArticles.length === 0) {
+      this.similarArticles.push(allPosts[0]);
+    }
   }
 
   componentWillMount() {
@@ -132,7 +136,7 @@ class PostTemplate extends Component {
             </StyledMarkdown>
             <AuthorBox/>
             <SimilarArticles>
-              <H2>Similar Articles:</H2>
+              <H2>Some more reading:</H2>
               {this.similarArticles.map(post => (
                 <div key={post.id}>
                   <Link dangerouslySetInnerHTML={{ __html: post.title }} to={post.slug}/>
@@ -255,7 +259,7 @@ const StyledMarkdown = styled(Markdown)`
   font-family: muliBold;
   line-height: 1.6;
 
-  a, h1, h2 {
+  a, h1, h2, h3, h4 {
     @font-face {
       font-family: 'muliBlack';
       src: url(${muliBlack2}) format('woff2'),
@@ -270,7 +274,7 @@ const StyledMarkdown = styled(Markdown)`
     color: ${({theme}: Props) => theme.colors.black};
   }
 
-  h3, p, span {
+  p, span {
     @font-face {
       font-family: 'muliRegular';
       src: url(${muliRegular2}) format('woff2'),
@@ -302,6 +306,15 @@ const StyledMarkdown = styled(Markdown)`
     box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
   }
 
+  code {
+    background: linear-gradient(
+      ${({theme}: Props) => theme.colors.turquoise},
+      ${({theme}: Props) => theme.colors.turquoiseDark});
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    color: ${({theme}: Props) => theme.colors.white}
+  }
+
   h4 {
     @font-face {
       font-family: 'muliLight';
@@ -320,9 +333,6 @@ const StyledMarkdown = styled(Markdown)`
 
   p, span {
     font-size: 1rem;
-    @media (min-width: 600px) {
-      font-size: 1.1rem;
-    }
   }
 
   img {

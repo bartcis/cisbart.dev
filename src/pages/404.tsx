@@ -62,7 +62,7 @@ const Bomb = styled.div`
   @keyframes falling {
     from {
       transform:
-        translate(0, 0)
+        translate(0, -10vh)
         rotate(0deg)
     }
     to {
@@ -90,6 +90,10 @@ const BombingContainer = styled.section`
   position: fixed;
   left: 0;
   top: 0;
+
+  div {
+    transform: translateY(-100px);
+  }
 
   div:nth-child(1) {
     width: 5rem;

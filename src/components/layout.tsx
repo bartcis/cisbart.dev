@@ -9,6 +9,18 @@ import Wrapper from './partials/common/wrapper'
 import ArticleBox from './partials/articleBox'
 import BlogFooter from './footer'
 
+function fiterPosts (posts) {
+  let render = [] 
+  
+  posts.reverse().map(a => {
+    if (a.status === 'PUBLISHED') {
+      render.push(a);
+    }
+  })
+
+  return render;
+};
+
 const Layout = () => (
   <StaticQuery
   query={graphql`{
@@ -25,6 +37,7 @@ const Layout = () => (
               url
             }
             tags
+            status
           }
         }
       }
@@ -36,16 +49,16 @@ const Layout = () => (
         <Wrapper isGapped>
           <AuthorBox/>
           <ArticleWrapper>
-            {blogPosts.map(post => (
-                <ArticleBox key={post.id} title={post.title}
-                  description={post.description.markdown}
-                  date={post.createdAt.slice(0, 10).split('-').join('/')}
-                  tag1={post.tags[0]}
-                  tag2={post.tags[1]}
-                  tag3={post.tags[2]}
-                  image={post.heroImage.url}
-                  link = {post.slug.toLowerCase()}
-                />
+            {fiterPosts(blogPosts).map(post => (
+              <ArticleBox key={post.id} title={post.title}
+                description={post.description.markdown}
+                date={post.createdAt.slice(0, 10).split('-').join('/')}
+                tag1={post.tags[0]}
+                tag2={post.tags[1]}
+                tag3={post.tags[2]}
+                image={post.heroImage.url}
+                link = {post.slug.toLowerCase()}
+              />
             ))}
           </ArticleWrapper>
           <BlogFooter/>
@@ -59,4 +72,7 @@ export default Layout
 
 const ArticleWrapper = styled.div`
   min-height: 70vh;
+  @media (min-width: 800px) {
+    min-height: 55vh;
+  }
 `;

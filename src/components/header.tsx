@@ -46,7 +46,7 @@ const StyledHome = styled.div`
 
 const StyledHeader = styled.div`
   height: 3rem;
-  background-color: ${({theme}) => theme.colors.white};
+  background-color: ${({theme}) => theme.colors.whiteOpacity};
   width: 100vw;
   position: fixed;
   top: 0;

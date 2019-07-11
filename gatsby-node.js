@@ -31,13 +31,15 @@ exports.createPages = ({ graphql, actions }) => {
         reject(result.errors);
       }
       result.data.blog.blogPosts.map( a => {
-        createPage({
-          path: `/${a.slug}/`,
-          component: path.resolve(`./src/templates/postTemplate.tsx`),
-          context: {
-            id: a.id,
-          },
-        });
+        if (a.status === 'PUBLISHED') {
+          createPage({
+            path: `/${a.slug}/`,
+            component: path.resolve(`./src/templates/postTemplate.tsx`),
+            context: {
+              id: a.id,
+            },
+          });
+        }
       });
       // Separete tags and generate page for each
       function processTags(tags) {
