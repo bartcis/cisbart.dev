@@ -19,6 +19,7 @@ const AuthorBox = () => (
 const Description = styled.div`
   margin-right: 0;
   width: calc(100% - 150px);
+  line-height: 1.5;
   p {
     display: none;
     @media (min-width: 600px) {

@@ -107,7 +107,11 @@ class PostTemplate extends Component {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <SEO title={this.currentPost.title} keywords={this.currentPost.slug} description={this.currentPost.description}/>
+          <SEO title={this.currentPost.title} 
+            meta={this.currentPost.slug.split('-').join(' ')} 
+            description={this.currentPost.description.markdown}
+            image={this.currentPost.heroImage.url}
+            type='article'/>
           <Header/>
           <SideMenu/>
           <HeroImage style={{ backgroundImage: `url(${this.currentPost.heroImage.url})` }}/>
@@ -222,7 +226,10 @@ const FlexWrapper = styled(Wrapper)`
       font-style: normal;
     }
     font-family: 'muliBlack';
-    font-size: 1rem;
+    font-size: .9rem;
+    @media (min-width: 600px) {
+      font-size: 1rem;
+    }
   }
 `
 
@@ -310,7 +317,7 @@ const StyledMarkdown = styled(Markdown)`
     background: linear-gradient(
       ${({theme}: Props) => theme.colors.turquoise},
       ${({theme}: Props) => theme.colors.turquoiseDark});
-    padding: .5rem 1rem;
+    padding: .25rem .75rem;
     border-radius: 1rem;
     color: ${({theme}: Props) => theme.colors.white}
   }
@@ -329,6 +336,20 @@ const StyledMarkdown = styled(Markdown)`
 
   h1 {
     font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    @media (min-width: 600px) {
+      font-size: 1.5rem
+    }
+  }
+
+  h3 {
+    font-size: 1rem;
+    @media (min-width: 600px) {
+      font-size: 1.25rem
+    }
   }
 
   p, span {

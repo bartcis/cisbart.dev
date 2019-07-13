@@ -71,6 +71,13 @@ const Layout = () => (
 export default Layout
 
 const ArticleWrapper = styled.div`
+  @keyframes show {
+    0% { opacity: 0; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: show 1s 1;
   min-height: 70vh;
   @media (min-width: 800px) {
     min-height: 55vh;

@@ -42,13 +42,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-142147147-1",
+        trackingId: `UA-142147147-1`,
         head: false,
         anonymize: true,
         respectDNT: true,
         sampleRate: 5,
         siteSpeedSampleRate: 10,
-        cookieDomain: "example.com",
+        cookieDomain: `cisbart.dev`,
       }
     }
   ],

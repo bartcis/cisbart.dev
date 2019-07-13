@@ -7,9 +7,11 @@ interface Props {
   lang: string,
   meta: any,
   title: string,
+  image: string,
+  type: string
 }
 
-function SEO({ description, lang, meta, title }: Props) {
+function SEO({ description, lang, meta, title, image, type }: Props) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -35,6 +37,10 @@ function SEO({ description, lang, meta, title }: Props) {
       titleTemplate={`${site.siteMetadata.title} - %s`}
       meta={[
         {
+          name: `keywords`,
+          content: meta,
+        },
+        {
           name: `description`,
           content: metaDescription,
         },
@@ -48,7 +54,11 @@ function SEO({ description, lang, meta, title }: Props) {
         },
         {
           property: `og:type`,
-          content: `website`,
+          content: type || `blog`,
+        },
+        {
+          property: `og:image`,
+          content: image,
         },
         {
           name: `twitter:card`,

@@ -39,7 +39,7 @@ const Container = styled(Link)`
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
-  padding: 1rem;
+  padding: 1rem 1rem .5rem;
   width: 100%;
   border-radius: 100px;
   border: 1px solid ${({theme}) => theme.colors.whiteDark};
@@ -50,6 +50,7 @@ const Container = styled(Link)`
   position: relative;
   box-sizing: border-box;
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  line-height: 1.5;
   @media (min-width: 600px) {
     width: calc(100% - 2rem);
     margin: 1rem;
