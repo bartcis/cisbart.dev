@@ -1,13 +1,13 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-import styled, { createGlobalStyle } from 'styled-components'
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
-import SEO from '../components/seo'
-import { theme } from '../components/utils/theme'
-import Header from '../components/header'
-import SideMenu from '../components/sideMenu'
-import homeIcon from '../images/pineapple.svg'
-import info from '../images/sign.svg'
+import SEO from "../components/seo"
+import { theme } from "../components/utils/theme"
+import Header from "../components/header"
+import SideMenu from "../components/sideMenu"
+import homeIcon from "../images/pineapple.svg"
+import info from "../images/sign.svg"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,25 +19,25 @@ const GlobalStyle = createGlobalStyle`
 const NotFound = () => (
   <ThemeProvider theme={theme}>
     <>
-      <GlobalStyle/>
-      <SEO title='Page not found' keywords={[`javascript`, `frontend`]} />
-      <Header/>
-      <SideMenu/>
+      <GlobalStyle />
+      <SEO title="Page not found" keywords={[`javascript`, `frontend`]} />
+      <Header />
+      <SideMenu />
       <BombingContainer>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
-        <Bomb/>
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
+        <Bomb />
       </BombingContainer>
-      <Info/>
+      <Info />
     </>
   </ThemeProvider>
 )
@@ -45,30 +45,26 @@ const NotFound = () => (
 export default NotFound
 
 const Info = styled.div`
-    background-image: url(${info});
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 300px;
-    height: 200px;
-    margin: 40vh auto;
-    @media (min-width: 600px) {
-      width: 500px;
-      height: 350px;
-      margin: 20vh auto;
-    }
+  background-image: url(${info});
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 300px;
+  height: 200px;
+  margin: 40vh auto;
+  @media (min-width: 600px) {
+    width: 500px;
+    height: 350px;
+    margin: 20vh auto;
+  }
 `
 
 const Bomb = styled.div`
   @keyframes falling {
     from {
-      transform:
-        translate(0, -10vh)
-        rotate(0deg)
+      transform: translate(0, -10vh) rotate(0deg);
     }
     to {
-      transform:
-        translate(0, 120vh)
-        rotate(360deg)
+      transform: translate(0, 120vh) rotate(360deg);
     }
   }
   width: 5rem;
@@ -83,7 +79,7 @@ const Bomb = styled.div`
 const BombingContainer = styled.section`
   width: 100vw;
   height: 100vh;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   z-index: -1;

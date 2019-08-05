@@ -1,34 +1,53 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
+import React, { Component } from "react"
+import styled from "styled-components"
+import { Link } from "gatsby"
 
-import Tag from './common/tag'
-import Text from './common/text'
-import H2 from './common/h2'
+import Tag from "./common/tag"
+import Text from "./common/text"
+import H2 from "./common/h2"
 
 interface Props {
   theme: {
     colors: {
-      blue: string,
-      whiteDark: string,
-    },
+      blue: string
+      whiteDark: string
+    }
   }
 }
 
-class ArticleBox extends Component { 
+class ArticleBox extends Component {
   render() {
     return (
       <Container to={`/${this.props.link}`}>
-        <div className="image" style={{ backgroundImage: `url(${this.props.image})` }}></div>
+        <div
+          className="image"
+          style={{ backgroundImage: `url(${this.props.image})` }}
+        ></div>
         <div className="content">
           <H2 className="content__title">{this.props.title}</H2>
-          <Text isSmall className="content__subtitle">{this.props.description}</Text>
+          <Text isSmall className="content__subtitle">
+            {this.props.description}
+          </Text>
         </div>
         <div className="info">
-          <Text isSmall className="info__date">{this.props.date}</Text>
-          {this.props.tag1 ? <Tag target={this.props.tag1.toLowerCase()}/> : ''}
-          {this.props.tag2 ? <Tag target={this.props.tag2.toLowerCase()}/> : ''}
-          {this.props.tag3 ? <Tag target={this.props.tag3.toLowerCase()}/> : ''}
+          <Text isSmall className="info__date">
+            {this.props.date}
+          </Text>
+          {this.props.tag1 ? (
+            <Tag target={this.props.tag1.toLowerCase()} />
+          ) : (
+            ""
+          )}
+          {this.props.tag2 ? (
+            <Tag target={this.props.tag2.toLowerCase()} />
+          ) : (
+            ""
+          )}
+          {this.props.tag3 ? (
+            <Tag target={this.props.tag3.toLowerCase()} />
+          ) : (
+            ""
+          )}
         </div>
       </Container>
     )
@@ -39,10 +58,10 @@ const Container = styled(Link)`
   display: flex;
   flex-wrap: wrap;
   margin: 1rem 0;
-  padding: 1rem 1rem .5rem;
+  padding: 1rem 1rem 0.5rem;
   width: 100%;
   border-radius: 100px;
-  border: 1px solid ${({theme}) => theme.colors.whiteDark};
+  border: 1px solid ${({ theme }) => theme.colors.whiteDark};
   box-shadow: none;
   overflow: hidden;
   text-decoration: none;
@@ -60,7 +79,7 @@ const Container = styled(Link)`
     padding: 0;
   }
   :hover {
-    box-shadow: 15px 10px 15px ${({theme}) => theme.colors.grey};
+    box-shadow: 15px 10px 15px ${({ theme }) => theme.colors.grey};
     .content {
       &__title {
         @media (min-width: 800px) {
@@ -73,7 +92,7 @@ const Container = styled(Link)`
     }
   }
   .image {
-    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -85,7 +104,7 @@ const Container = styled(Link)`
     }
   }
   .content {
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     width: 90%;
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     @media (min-width: 400px) {
@@ -140,6 +159,6 @@ const Container = styled(Link)`
       }
     }
   }
-`;
+`
 
 export default ArticleBox

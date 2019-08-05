@@ -1,37 +1,37 @@
-import React, { Component } from 'react';
-import { ThemeProvider } from 'styled-components'
-import { graphql, Link } from 'gatsby'
-import Markdown from 'markdown-to-jsx'
-import styled, { createGlobalStyle } from 'styled-components'
-import Gist from 'react-gist'
+import React, { Component } from "react"
+import { ThemeProvider } from "styled-components"
+import { graphql, Link } from "gatsby"
+import Markdown from "markdown-to-jsx"
+import styled, { createGlobalStyle } from "styled-components"
+import Gist from "react-gist"
 
-import SEO from '../components/seo'
-import { theme } from '../components/utils/theme'
-import Header from '../components/header'
-import SideMenu from '../components/sideMenu'
-import Wrapper from '../components/partials/common/wrapper'
-import BlogFooter from '../components/footer'
-import Tag from '../components/partials/common/tag'
-import H1 from '../components/partials/common/h1'
-import H2 from '../components/partials/common/h2'
-import AuthorBox from '../components/partials/authorBox'
-import muliRegular2 from '../fonts/muli-regular-webfont.woff2'
-import muliRegular from '../fonts/muli-regular-webfont.woff'
-import muliBlack2 from '../fonts/muli-black-webfont.woff2'
-import muliBlack from '../fonts/muli-black-webfont.woff'
-import muliLight2 from '../fonts/muli-light-webfont.woff2'
-import muliLight from '../fonts/muli-light-webfont.woff'
-import muliBold2 from '../fonts/muli-bold-webfont.woff2'
-import muliBold from '../fonts/muli-bold-webfont.woff'
+import SEO from "../components/seo"
+import { theme } from "../components/utils/theme"
+import Header from "../components/header"
+import SideMenu from "../components/sideMenu"
+import Wrapper from "../components/partials/common/wrapper"
+import BlogFooter from "../components/footer"
+import Tag from "../components/partials/common/tag"
+import H1 from "../components/partials/common/h1"
+import H2 from "../components/partials/common/h2"
+import AuthorBox from "../components/partials/authorBox"
+import muliRegular2 from "../fonts/muli-regular-webfont.woff2"
+import muliRegular from "../fonts/muli-regular-webfont.woff"
+import muliBlack2 from "../fonts/muli-black-webfont.woff2"
+import muliBlack from "../fonts/muli-black-webfont.woff"
+import muliLight2 from "../fonts/muli-light-webfont.woff2"
+import muliLight from "../fonts/muli-light-webfont.woff"
+import muliBold2 from "../fonts/muli-bold-webfont.woff2"
+import muliBold from "../fonts/muli-bold-webfont.woff"
 
 interface Props {
-  isSmall: boolean,
+  isSmall: boolean
   theme: {
     colors: {
-      blue: string,
-      whiteDark: string,
+      blue: string
+      whiteDark: string
       black: string
-    },
+    }
   }
 }
 
@@ -42,9 +42,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const ScriptHandler = (props) => {
-  if (props.src && props.src.includes('gist.github.com')) {
-    return <Gist id={props.src.split('/')[4].split('.')[0]}/>
+const ScriptHandler = props => {
+  if (props.src && props.src.includes("gist.github.com")) {
+    return <Gist id={props.src.split("/")[4].split(".")[0]} />
   }
   return null
 }
@@ -52,34 +52,35 @@ const ScriptHandler = (props) => {
 class PostTemplate extends Component {
   constructor() {
     super()
-    this.currentPost;
+    this.currentPost
     this.similarArticles = []
   }
   discus() {
-    var disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = this.props.data.blog.blogPosts[0].slug;
-      };
+    var disqus_config = function() {
+      this.page.url = window.location.href
+      this.page.identifier = this.props.data.blog.blogPosts[0].slug
+    }
 
-      (function() {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://cisbart-dev.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', + new Date());
-      (d.head || d.body).appendChild(s);
-      })();
+    ;(function() {
+      var d = document,
+        s = d.createElement("script")
+      s.src = "https://cisbart-dev.disqus.com/embed.js"
+      s.setAttribute("data-timestamp", +new Date())
+      ;(d.head || d.body).appendChild(s)
+    })()
   }
 
   filterData() {
-    const current = this.props.pageContext.id;
-    const allPosts = this.props.data.blog.blogPosts;
-    let currentTags;
+    const current = this.props.pageContext.id
+    const allPosts = this.props.data.blog.blogPosts
+    let currentTags
 
     allPosts.map(a => {
       if (a.id === current) {
-        this.currentPost = a;
-        currentTags = a.tags;
+        this.currentPost = a
+        currentTags = a.tags
       }
-    });
+    })
 
     allPosts.map(a => {
       if (this.similarArticles.length < 4) {
@@ -87,19 +88,19 @@ class PostTemplate extends Component {
           this.similarArticles.push(a)
         }
       }
-    });
+    })
 
     if (this.similarArticles.length === 0) {
-      this.similarArticles.push(allPosts[0]);
+      this.similarArticles.push(allPosts[0])
     }
   }
 
   componentWillMount() {
-    this.filterData();
+    this.filterData()
   }
 
   componentDidMount() {
-    this.discus();
+    this.discus()
   }
 
   render() {
@@ -107,48 +108,65 @@ class PostTemplate extends Component {
       <ThemeProvider theme={theme}>
         <>
           <GlobalStyle />
-          <SEO title={this.currentPost.title} 
-            meta={this.currentPost.slug.split('-').join(' ')} 
+          <SEO
+            title={this.currentPost.title}
+            meta={this.currentPost.slug.split("-").join(" ")}
             description={this.currentPost.description.markdown}
             image={this.currentPost.heroImage.url}
-            type='article'/>
-          <Header/>
-          <SideMenu/>
-          <HeroImage style={{ backgroundImage: `url(${this.currentPost.heroImage.url})` }}/>
+            type="article"
+          />
+          <Header />
+          <SideMenu />
+          <HeroImage
+            style={{
+              backgroundImage: `url(${this.currentPost.heroImage.url})`,
+            }}
+          />
           <Wrapper>
             <Heading>{this.currentPost.title}</Heading>
             <FlexWrapper>
-              <h2>Published: {this.currentPost.createdAt.slice(0, 10).split('-').join('/')}</h2>
+              <h2>
+                Published:{" "}
+                {this.currentPost.createdAt
+                  .slice(0, 10)
+                  .split("-")
+                  .join("/")}
+              </h2>
               <TagContainer>
                 {this.currentPost.tags.map(tag => (
-                  <Tag key={tag} target={tag.toLowerCase()}/>
+                  <Tag key={tag} target={tag.toLowerCase()} />
                 ))}
               </TagContainer>
             </FlexWrapper>
             <StyledMarkdown>
               {this.currentPost.description.markdown}
             </StyledMarkdown>
-            <StyledMarkdown options={{
+            <StyledMarkdown
+              options={{
                 overrides: {
                   script: {
-                    component: ScriptHandler
+                    component: ScriptHandler,
                   },
                   Gist: Gist,
                 },
-              }}>
+              }}
+            >
               {this.currentPost.content[0]}
             </StyledMarkdown>
-            <AuthorBox/>
+            <AuthorBox />
             <SimilarArticles>
               <H2>Some more reading:</H2>
               {this.similarArticles.map(post => (
                 <div key={post.id}>
-                  <Link dangerouslySetInnerHTML={{ __html: post.title }} to={post.slug}/>
+                  <Link
+                    dangerouslySetInnerHTML={{ __html: post.title }}
+                    to={post.slug}
+                  />
                 </div>
               ))}
             </SimilarArticles>
             <div id="disqus_thread"></div>
-            <BlogFooter/>
+            <BlogFooter />
           </Wrapper>
         </>
       </ThemeProvider>
@@ -181,9 +199,8 @@ export const pageQuery = graphql`
 
 const SimilarArticles = styled.div`
   @font-face {
-    font-family: 'muliBlack';
-    src: url(${muliBlack2}) format('woff2'),
-      url(${muliBlack}) format('woff');
+    font-family: "muliBlack";
+    src: url(${muliBlack2}) format("woff2"), url(${muliBlack}) format("woff");
     font-weight: normal;
     font-style: normal;
   }
@@ -192,12 +209,12 @@ const SimilarArticles = styled.div`
     margin: 1rem 0;
   }
   a {
-    font-family: 'muliBlack';
+    font-family: "muliBlack";
     text-decoration: none;
-    color: ${({theme}: Props) => theme.colors.turquoiseDark};
-    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    color: ${({ theme }: Props) => theme.colors.turquoiseDark};
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     :hover {
-      color: ${({theme}: Props) => theme.colors.turquoise};
+      color: ${({ theme }: Props) => theme.colors.turquoise};
     }
   }
 `
@@ -208,7 +225,7 @@ const TagContainer = styled.div`
   padding: 1rem;
   z-index: 1;
   justify-content: center;
-`;
+`
 
 const FlexWrapper = styled(Wrapper)`
   display: flex;
@@ -219,14 +236,13 @@ const FlexWrapper = styled(Wrapper)`
   }
   h2 {
     @font-face {
-      font-family: 'muliBlack';
-      src: url(${muliBlack2}) format('woff2'),
-        url(${muliBlack}) format('woff');
+      font-family: "muliBlack";
+      src: url(${muliBlack2}) format("woff2"), url(${muliBlack}) format("woff");
       font-weight: normal;
       font-style: normal;
     }
-    font-family: 'muliBlack';
-    font-size: .9rem;
+    font-family: "muliBlack";
+    font-size: 0.9rem;
     @media (min-width: 600px) {
       font-size: 1rem;
     }
@@ -240,7 +256,7 @@ const HeroImage = styled.div`
   background-repeat: no-repeat;
   width: 100vw;
   height: 300px;
-  box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.whiteDark};
+  box-shadow: 0px 0px 20px 0px ${({ theme }) => theme.colors.whiteDark};
   @media (min-width: 600px) {
     height: 400px;
   }
@@ -257,47 +273,54 @@ const Heading = styled(H1)`
 `
 const StyledMarkdown = styled(Markdown)`
   @font-face {
-    font-family: 'muliBold';
-    src: url(${muliBold2}) format('woff2'),
-      url(${muliBold}) format('woff');
+    font-family: "muliBold";
+    src: url(${muliBold2}) format("woff2"), url(${muliBold}) format("woff");
     font-weight: normal;
     font-style: normal;
   }
   font-family: muliBold;
   line-height: 1.6;
 
-  a, h1, h2, h3, h4 {
+  a,
+  h1,
+  h2,
+  h3,
+  h4 {
     @font-face {
-      font-family: 'muliBlack';
-      src: url(${muliBlack2}) format('woff2'),
-        url(${muliBlack}) format('woff');
+      font-family: "muliBlack";
+      src: url(${muliBlack2}) format("woff2"), url(${muliBlack}) format("woff");
       font-weight: normal;
       font-style: normal;
     }
-    font-family: 'muliBlack';
+    font-family: "muliBlack";
   }
 
-  h1, h2, h3, h4, p {
-    color: ${({theme}: Props) => theme.colors.black};
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    color: ${({ theme }: Props) => theme.colors.black};
   }
 
-  p, span {
+  p,
+  span {
     @font-face {
-      font-family: 'muliRegular';
-      src: url(${muliRegular2}) format('woff2'),
-        url(${muliRegular}) format('woff');
+      font-family: "muliRegular";
+      src: url(${muliRegular2}) format("woff2"),
+        url(${muliRegular}) format("woff");
       font-weight: normal;
       font-style: normal;
     }
-    font-family: 'muliRegular';
+    font-family: "muliRegular";
   }
 
   a {
     text-decoration: none;
-    color: ${({theme}: Props) => theme.colors.turquoiseDark};
-    transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    color: ${({ theme }: Props) => theme.colors.turquoiseDark};
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     :hover {
-      color: ${({theme}: Props) => theme.colors.turquoise};
+      color: ${({ theme }: Props) => theme.colors.turquoise};
     }
   }
 
@@ -306,32 +329,32 @@ const StyledMarkdown = styled(Markdown)`
   }
 
   blockquote {
-    background-color: ${({theme}: Props) => theme.colors.whiteDark};
+    background-color: ${({ theme }: Props) => theme.colors.whiteDark};
     margin: 1rem;
-    padding: .5rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 15px;
-    box-shadow: 10px 10px 20px ${({theme}) => theme.colors.grey};
+    box-shadow: 10px 10px 20px ${({ theme }) => theme.colors.grey};
   }
 
   code {
     background: linear-gradient(
-      ${({theme}: Props) => theme.colors.turquoise},
-      ${({theme}: Props) => theme.colors.turquoiseDark});
-    padding: .25rem .75rem;
+      ${({ theme }: Props) => theme.colors.turquoise},
+      ${({ theme }: Props) => theme.colors.turquoiseDark}
+    );
+    padding: 0.25rem 0.75rem;
     border-radius: 1rem;
-    color: ${({theme}: Props) => theme.colors.white}
+    color: ${({ theme }: Props) => theme.colors.white};
   }
 
   h4 {
     @font-face {
-      font-family: 'muliLight';
-      src: url(${muliLight2}) format('woff2'),
-        url(${muliLight}) format('woff');
+      font-family: "muliLight";
+      src: url(${muliLight2}) format("woff2"), url(${muliLight}) format("woff");
       font-weight: normal;
       font-style: normal;
     }
-    font-family: 'muliLight';
-    margin: .5rem 0;
+    font-family: "muliLight";
+    margin: 0.5rem 0;
   }
 
   h1 {
@@ -341,24 +364,25 @@ const StyledMarkdown = styled(Markdown)`
   h2 {
     font-size: 1.25rem;
     @media (min-width: 600px) {
-      font-size: 1.5rem
+      font-size: 1.5rem;
     }
   }
 
   h3 {
     font-size: 1rem;
     @media (min-width: 600px) {
-      font-size: 1.25rem
+      font-size: 1.25rem;
     }
   }
 
-  p, span {
+  p,
+  span {
     font-size: 1rem;
   }
 
   img {
     width: 100%;
-    box-shadow: 15px 15px 30px ${({theme}) => theme.colors.grey};
+    box-shadow: 15px 15px 30px ${({ theme }) => theme.colors.grey};
     margin: 1rem auto;
   }
 `

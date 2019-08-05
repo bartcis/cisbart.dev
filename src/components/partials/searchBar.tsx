@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import React, { Component } from "react"
+import styled from "styled-components"
 
-import muliRegular2 from '../../fonts/muli-regular-webfont.woff2'
-import muliRegular from '../../fonts/muli-regular-webfont.woff'
-import searchIcon from '../../images/icon-search.svg'
+import muliRegular2 from "../../fonts/muli-regular-webfont.woff2"
+import muliRegular from "../../fonts/muli-regular-webfont.woff"
+import searchIcon from "../../images/icon-search.svg"
 
 export default class Search extends Component {
   constructor(props) {
@@ -19,7 +18,8 @@ export default class Search extends Component {
     return (
       <div>
         <Form>
-          <Input placeholder="Search"
+          <Input
+            placeholder="Search"
             type="text"
             value={this.state.query}
             onChange={this.search}
@@ -41,23 +41,23 @@ export default class Search extends Component {
 
 const Input = styled.input`
   @font-face {
-    font-family: 'muliRegular';
-    src: url(${muliRegular2}) format('woff2'),
-      url(${muliRegular}) format('woff');
+    font-family: "muliRegular";
+    src: url(${muliRegular2}) format("woff2"),
+      url(${muliRegular}) format("woff");
     font-weight: normal;
     font-style: normal;
   }
   height: 2rem;
   width: 100%;
-  border: 1px solid ${({theme}) => theme.colors.whiteDark};
+  border: 1px solid ${({ theme }) => theme.colors.whiteDark};
   border-radius: 25px;
   padding: 1rem;
-  font-size: .8rem;
-  color: ${({theme}) => theme.colors.grey};
-  font-family: 'muliRegular';
+  font-size: 0.8rem;
+  color: ${({ theme }) => theme.colors.grey};
+  font-family: "muliRegular";
   box-sizing: border-box;
   ::placeholder {
-    font-family: 'muliRegular';
+    font-family: "muliRegular";
     -webkit-font-smooth: antialiased;
     -moz-font-smooth: antialiased;
   }
@@ -79,7 +79,7 @@ const Icon = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  right: .75rem;
-  top: .5rem;
+  right: 0.75rem;
+  top: 0.5rem;
   cursor: pointer;
 `

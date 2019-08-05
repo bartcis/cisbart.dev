@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components';
-import { connect } from 'react-redux';
-import { showMenu as showMenuAction } from '../../store/app';
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
+import { connect } from "react-redux"
+import { showMenu as showMenuAction } from "../../store/app"
 
-import homeIcon from '../../images/pineapple.svg'
+import homeIcon from "../../images/pineapple.svg"
 
 class LinkLogo extends Component {
   render() {
     return (
-      <StyledLink to='/' onClick={() => this.props.showMenu('false')}>
-        <Icon/>
+      <StyledLink to="/" onClick={() => this.props.showMenu("false")}>
+        <Icon />
       </StyledLink>
     )
   }
@@ -18,8 +18,8 @@ class LinkLogo extends Component {
 
 export default connect(
   state => ({ menuState: state.app.menuState }),
-  dispatch => ({ showMenu: (status) => dispatch(showMenuAction(status))}),
-)(LinkLogo);
+  dispatch => ({ showMenu: status => dispatch(showMenuAction(status)) })
+)(LinkLogo)
 
 const Icon = styled.div`
   width: 2.5rem;
@@ -30,12 +30,12 @@ const Icon = styled.div`
 `
 
 const StyledLink = styled(Link)`
-  font-family: 'muliLight';
+  font-family: "muliLight";
   font-size: 1.25rem;
   padding: 1rem 2rem;
   text-decoration: none;
-  transition: color .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   &:hover {
-    color: ${({theme}) => theme.colors.turquoise};
+    color: ${({ theme }) => theme.colors.turquoise};
   }
-`;
+`

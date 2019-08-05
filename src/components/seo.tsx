@@ -1,13 +1,13 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import Helmet from "react-helmet"
+import { useStaticQuery, graphql } from "gatsby"
 
 interface Props {
-  description: string,
-  lang: string,
-  meta: any,
-  title: string,
-  image: string,
+  description: string
+  lang: string
+  meta: any
+  title: string
+  image: string
   type: string
 }
 

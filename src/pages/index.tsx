@@ -1,10 +1,10 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components';
-import { createGlobalStyle } from 'styled-components';
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import { createGlobalStyle } from "styled-components"
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import { theme } from '../components/utils/theme';
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import { theme } from "../components/utils/theme"
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -16,7 +16,10 @@ const GlobalStyle = createGlobalStyle`
 const IndexPage = () => (
   <ThemeProvider theme={theme}>
     <>
-      <SEO title='Home Page' keywords={[`javascript`, `react`, `frontend`, `HTML CSS`]} />
+      <SEO
+        title="Home Page"
+        keywords={[`javascript`, `react`, `frontend`, `HTML CSS`]}
+      />
       <GlobalStyle />
       <Layout></Layout>
     </>

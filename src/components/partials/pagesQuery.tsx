@@ -1,14 +1,15 @@
-import React from 'react';
-import { StaticQuery, graphql } from 'gatsby'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
 
-import PageList from './pageList'
+import PageList from "./pageList"
 
 const PagesQuery = () => (
   <StaticQuery
-    query={graphql`{
-      blog {
+    query={graphql`
+      {
+        blog {
           blogPages {
-            id 
+            id
             title
             slug
             icon {
@@ -18,7 +19,7 @@ const PagesQuery = () => (
         }
       }
     `}
-    render={({blog: {blogPages}}) => (
+    render={({ blog: { blogPages } }) => (
       <>
         <PageList pages={blogPages} />
       </>

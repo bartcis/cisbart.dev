@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
-import LinkLogo from '../components/partials/logo'
-import Hamburger from '../components/partials/hamburger'
+import LinkLogo from "../components/partials/logo"
+import Hamburger from "../components/partials/hamburger"
 
 const Header = () => (
   <StyledHeader>
-    <Hamburger type={'hamburger'}></Hamburger>
+    <Hamburger type={"hamburger"}></Hamburger>
     <HeaderWrapper>
       <StyledHome>
         <LinkLogo />
@@ -46,13 +46,13 @@ const StyledHome = styled.div`
 
 const StyledHeader = styled.div`
   height: 3rem;
-  background-color: ${({theme}) => theme.colors.whiteOpacity};
+  background-color: ${({ theme }) => theme.colors.whiteOpacity};
   width: 100vw;
   position: fixed;
   top: 0;
   padding: 0 0 0 4rem;
   z-index: 2;
-  box-shadow: 0px 0px 20px 0px ${({theme}) => theme.colors.whiteDark};
+  box-shadow: 0px 0px 20px 0px ${({ theme }) => theme.colors.whiteDark};
   @media (min-width: 1200px) {
     padding: 0 5rem;
     padding: 0;

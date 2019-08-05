@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
-import Text from './partials/common/text'
+import Text from "./partials/common/text"
 
 const BlogFooter = () => (
   <Footer>
@@ -12,10 +12,10 @@ const BlogFooter = () => (
 const Footer = styled.footer`
   text-align: center;
   padding: 1rem;
-  border-top: 1px solid ${({theme}) => theme.colors.whiteDark};
-  color: ${({theme}) => theme.colors.grey};
+  border-top: 1px solid ${({ theme }) => theme.colors.whiteDark};
+  color: ${({ theme }) => theme.colors.grey};
   max-width: 600px;
   margin: 4rem auto 0;
-`;
+`
 
-export default BlogFooter;
+export default BlogFooter

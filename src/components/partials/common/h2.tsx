@@ -1,29 +1,28 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
-import muliBlack2 from '../../../fonts/muli-black-webfont.woff2';
-import muliBlack from '../../../fonts/muli-black-webfont.woff';
+import muliBlack2 from "../../../fonts/muli-black-webfont.woff2"
+import muliBlack from "../../../fonts/muli-black-webfont.woff"
 
 interface Props {
-  isSmall: boolean,
+  isSmall: boolean
 }
 
 const H2 = styled.h2`
   @font-face {
-    font-family: 'muliBlack';
-    src: url(${muliBlack2}) format('woff2'),
-        url(${muliBlack}) format('woff');
+    font-family: "muliBlack";
+    src: url(${muliBlack2}) format("woff2"), url(${muliBlack}) format("woff");
     font-weight: normal;
     font-style: normal;
   }
-  font-size: ${(props: Props) => props.isSmall ? '.8rem' : '1rem'};
+  font-size: ${(props: Props) => (props.isSmall ? ".8rem" : "1rem")};
   font-family: muliBlack;
-  color: ${({theme}) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
   -webkit-font-smooth: antialiased;
   -moz-font-smooth: antialiased;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   @media (min-width: 600px) {
-    font-size: ${(props: Props) => props.isSmall ? '1rem' : '1.25rem'};
+    font-size: ${(props: Props) => (props.isSmall ? "1rem" : "1.25rem")};
   }
-`;
+`
 
-export default H2;
+export default H2
