@@ -28,6 +28,12 @@ class SideMenu extends Component {
           </HamburgerWrapper>
           <PagesQuery />
           <TagList />
+          <Revolut href="https://revolutforbusiness.ngih.net/zVBmG">
+            <img
+              src="https://bedekodzic.pl/wp-content/uploads/2020/03/ab632a12-a240-490f-b485-53b145a7c9eb-1581441379572-min.png"
+              alt=""
+            />
+          </Revolut>
           <SocialIcons />
         </Menu>
       </MenuContainer>
@@ -43,6 +49,22 @@ export default connect(
 )(SideMenu)
 
 // STYLES
+const Revolut = styled.a`
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  img {
+    width: 200px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 80px;
+    left: 0;
+    margin: auto;
+  }
+`
 
 const HamburgerWrapper = styled.div`
   width: 100%;
